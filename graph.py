@@ -1,6 +1,7 @@
 import streamlit as st
 
 # Connect to Neo4j
+# Remember to adjust credentials
 from langchain_community.graphs import Neo4jGraph
 
 graph = Neo4jGraph(

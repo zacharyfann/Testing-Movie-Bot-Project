@@ -22,6 +22,7 @@ def handle_submit(message):
     """
 
     # Handle the response
+    # Generate response not importing correctly
     with st.spinner('Thinking...'):
         # Call the agent
         response = generate_response(message)

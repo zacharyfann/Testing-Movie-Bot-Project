@@ -20,7 +20,7 @@ chat_prompt = ChatPromptTemplate.from_messages(
 )
 
 movie_chat = chat_prompt | llm | StrOutputParser()
-
+# replaced openai with ollam
 tools = [
     Tool.from_function(
         name="General Chat",

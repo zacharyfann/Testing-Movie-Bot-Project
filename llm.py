@@ -7,6 +7,4 @@ llm = OllamaLLM(model='llama3')
 # Create the Embedding model
 from langchain_ollama import OllamaEmbeddings
 
-embeddings = OllamaEmbeddings(
-    model="avr/sfr-embedding-mistral",
-)
+embeddings = OllamaEmbeddings(model="avr/sfr-embedding-mistral")

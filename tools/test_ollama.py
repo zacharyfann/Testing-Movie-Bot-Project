@@ -12,4 +12,3 @@ model = OllamaLLM(model="llama3")
 chain = prompt | model
 
 print(chain.invoke({"question": "What is LangChain?"}))
-
