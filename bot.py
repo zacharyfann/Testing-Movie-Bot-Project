@@ -1,7 +1,6 @@
 import streamlit as st
-from agent import generate_response
 from utils import write_message
-
+from agent import generate_response
 
 # Page Config
 st.set_page_config("Ebert", page_icon=":movie_camera:")

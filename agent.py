@@ -10,6 +10,18 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain import hub
 from utils import get_session_id
 
+def generate_response(user_input):
+    """
+    Create a handler that calls the Conversational agent
+    and returns a response to be rendered in the UI
+    """
+
+    response = chat_agent.invoke(
+        {"input": user_input},
+        {"configurable": {"session_id": get_session_id()}},)
+
+    return response['output']
+
 from tools.vector import get_movie_plot
 
 chat_prompt = ChatPromptTemplate.from_messages(
@@ -20,7 +32,7 @@ chat_prompt = ChatPromptTemplate.from_messages(
 )
 
 movie_chat = chat_prompt | llm | StrOutputParser()
-# replaced openai with ollam
+# replaced openai with ollama
 tools = [
     Tool.from_function(
         name="General Chat",
@@ -89,14 +101,3 @@ chat_agent = RunnableWithMessageHistory(
     input_messages_key="input",
     history_messages_key="chat_history",
 )
-def generate_response(user_input):
-    """
-    Create a handler that calls the Conversational agent
-    and returns a response to be rendered in the UI
-    """
-
-    response = chat_agent.invoke(
-        {"input": user_input},
-        {"configurable": {"session_id": get_session_id()}},)
-
-    return response['output']
