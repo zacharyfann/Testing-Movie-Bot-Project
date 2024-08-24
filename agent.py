@@ -10,17 +10,6 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain import hub
 from utils import get_session_id
 
-def generate_response(user_input):
-    """
-    Create a handler that calls the Conversational agent
-    and returns a response to be rendered in the UI
-    """
-
-    response = chat_agent.invoke(
-        {"input": user_input},
-        {"configurable": {"session_id": get_session_id()}},)
-
-    return response['output']
 
 from tools.vector import get_movie_plot
 
@@ -92,7 +81,8 @@ agent = create_react_agent(llm, tools, agent_prompt)
 agent_executor = AgentExecutor(
     agent=agent,
     tools=tools,
-    verbose=True
+    verbose=True,
+    handle_parsing_errors=True
     )
 
 chat_agent = RunnableWithMessageHistory(
@@ -101,3 +91,16 @@ chat_agent = RunnableWithMessageHistory(
     input_messages_key="input",
     history_messages_key="chat_history",
 )
+
+def generate_response(user_input):
+    """
+    Create a handler that calls the Conversational agent
+    and returns a response to be rendered in the UI
+    """
+
+    response = chat_agent.invoke(
+        {"input": user_input},
+        {"configurable": {"session_id": get_session_id()}},)
+
+    return response['output']
+
