@@ -21,15 +21,15 @@ RETURN
 """
 index_name = "moviePlots"
 
-# vector_store = Neo4jVector.from_existing_index(
-#     embedding=embeddings,                              # (1)
-#     graph=graph,                             # (2)
-#     index_name="moviePlots",                 # (3)
-#     node_label="Movie",                      # (4)
-#     text_node_properties=["plot"],               # (5)
-#     embedding_node_property="plotEmbedding", # (6)
-#     retrieval_query=retrieval_query,
-# )
+vector_store = Neo4jVector.from_existing_index(
+    embedding=embeddings,                              # (1)
+    graph=graph,                             # (2)
+    index_name="moviePlots",                 # (3)
+    node_label="Movie",                      # (4)
+    # text_node_properties=["plot"],               # (5)
+    embedding_node_property="plotEmbedding", # (6)
+    retrieval_query=retrieval_query,
+)
 
 
 
@@ -49,17 +49,28 @@ if vector_store is None:
     embedding=embeddings,
     graph=graph,
     index_name="moviePlots",
-    embedding_node_properties="plotEmbedding",
+    embedding_node_property="plotEmbedding",
     retrieval_query=retrieval_query,
     )
         
 retriever = vector_store.as_retriever()
 
+# Put context in a readable format ex:
+# context = [{'m.title': 'Leaving Las Vegas'}, {'m.title': 'Piano, The'}, ...]  # Example structure
+# formatted_context = "\n".join([f"Title: {movie['m.title']}" for movie in context])
+
+# # Update instructions to include the formatted context
+# instructions = (
+#     f"Use the given context to answer the question. Context:\n{formatted_context}\n"
+#     "If you don't know the answer, say you don't know."
+
 instructions = (
-    "Use the given context to answer the question."
-    "If you don't know the answer, say you don't know."
-    "Context: {context}"
+    
+    "Use the given context to answer the question. Context: \n{context}\n"
+    "If you don't know the answer, say you don't know"
+
 )
+
 
 prompt = ChatPromptTemplate.from_messages(
     [
