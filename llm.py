@@ -1,10 +1,15 @@
 import streamlit as st
-from langchain_ollama.llms import OllamaLLM
+from langchain_openai import ChatOpenAI
 
-# Create the LLM
-llm = OllamaLLM(model='llama3')
 
+llm = ChatOpenAI(
+    openai_api_key=st.secrets["OPENAI_API_KEY"],
+    model=st.secrets["OPENAI_MODEL"],
+)
 # Create the Embedding model
-from langchain_ollama import OllamaEmbeddings
+from langchain_openai import OpenAIEmbeddings
 
-embeddings = OllamaEmbeddings(model="zw66/llama3-lora8b")
+
+embeddings = OpenAIEmbeddings(
+    openai_api_key=st.secrets["OPENAI_API_KEY"]
+)
