@@ -21,7 +21,7 @@ chat_prompt = ChatPromptTemplate.from_messages(
 )
 
 movie_chat = chat_prompt | llm | StrOutputParser()
-# replaced openai with ollama
+
 
 
 tools = [
@@ -38,7 +38,7 @@ tools = [
     Tool.from_function(
         name="Movie information",
         description="Provide information about movies questions using Cypher",
-        func = cypher_qa
+        func = cypher_qa,
     )
 ]
 
@@ -48,7 +48,7 @@ def get_memory(session_id):
 agent_prompt = PromptTemplate.from_template("""
     You are a movie expert providing information about movies.
     Be as helpful as possible and return as much information as possible.
-    Do not answer any questions that do not relate to movies, actors or directors.
+    Do not answer any questions that do not relate to movies, actors, plot, or directors.
 
     Do not answer any questions using your pre-trained knowledge, only use the information provided in the context.
 
