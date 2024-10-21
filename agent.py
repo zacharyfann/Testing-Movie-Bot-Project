@@ -1,3 +1,5 @@
+import streamlit as st
+from neo4j import GraphDatabase, basic_auth
 from llm import llm
 from graph import graph
 from langchain_core.prompts import ChatPromptTemplate
@@ -8,10 +10,13 @@ from langchain_community.chat_message_histories import Neo4jChatMessageHistory
 from langchain.agents import AgentExecutor, create_react_agent
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain import hub
-from utils import get_session_id
-from tools.cypher import cypher_qa
+# from utils import get_session_id
+from fastapi import Request
+from tools.cypher import run_query_with_langchain
+from tools.user_id import execute_query
 
 from tools.vector import get_movie_plot
+from utils import get_session_id, save_message
 
 chat_prompt = ChatPromptTemplate.from_messages(
     [
@@ -23,8 +28,9 @@ chat_prompt = ChatPromptTemplate.from_messages(
 movie_chat = chat_prompt | llm | StrOutputParser()
 
 
-
 tools = [
+   
+   
     Tool.from_function(
         name="General Chat",
         description="For general movie chat not covered by other tools",
@@ -38,7 +44,7 @@ tools = [
     Tool.from_function(
         name="Movie information",
         description="Provide information about movies questions using Cypher",
-        func = cypher_qa,
+        func = run_query_with_langchain,
     )
 ]
 
@@ -50,8 +56,9 @@ agent_prompt = PromptTemplate.from_template("""
     Be as helpful as possible and return as much information as possible.
     Do not answer any questions that do not relate to movies, actors, plot, or directors.
 
-    Do not answer any questions using your pre-trained knowledge, only use the information provided in the context.
+    Do not answer any questions using your pre-trained knowledge, only use the information provided in the context and relevant information from the user_id.                                  
 
+    If the user says "I", assume they mean the specified parameter "userId" 
     TOOLS:
     ------
 
@@ -99,15 +106,78 @@ chat_agent = RunnableWithMessageHistory(
     history_messages_key="chat_history",
 )
 
-def generate_response(user_input):
+# agent.py
+HOST = st.secrets["NEO4J_URI"]
+PASSWORD = st.secrets["NEO4J_PASSWORD"]
+USER = st.secrets["NEO4J_USERNAME"]
+DATABASE = st.secrets["NEO4J_DATABASE"]
+
+def execute_query(query, params):
+    
+    with GraphDatabase.driver(
+        HOST, auth=basic_auth(USER, PASSWORD), database=DATABASE
+    ) as driver:
+        return driver.execute_query(query, params)
+    
+    answer = execute_query(query, params)
+        
+    return {"message":answer}
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.DEBUG, filename="debug_log.log", filemode="w", format="%(asctime)s - %(levelname)s - %(message)s")
+
+def generate_response(user_input, request: Request, user_id):
     """
     Create a handler that calls the Conversational agent
-    and returns a response to be rendered in the UI
+    and returns a response to be rendered in the UI.
     """
 
-    response = chat_agent.invoke(
-        {"input": user_input},
-        {"configurable": {"session_id": get_session_id()}},)
+    session_id = get_session_id(request)
+    
+    # Save the user input message
+    save_message(session_id, "human", user_input, user_id)
+    
+    # Define the Cypher query to get the user's movie ratings
+    query = """
+    MATCH (u:User {userId: $user_id})-[r:RATED]->(m:Movie)
+    WHERE r.rating IS NOT NULL
+    RETURN m.title AS movie_name, r.rating AS rating
+"""
+
+    # Correct parameter passing
+    params = {"user_id": user_id}  # Pass user_id as a parameter
+    
+    # Execute the query and get the ratings
+    ratings = execute_query(query=query, params=params)
+    
+    # Log the raw result from the Cypher query
+    logging.debug(f"Raw ratings result: {ratings}")
+    
+    # If the ratings are empty, you may want to handle that case
+    if not ratings:
+        ratings = "No ratings found for this user."
+    
+    # Prepare the input data for the agent
+    input_data = {
+        "ratings": ratings,    # Pass the user's ratings
+        "input": user_input    # Pass the user's input
+    }
+    
+    # Configurable settings with the session ID
+    config = {
+        "configurable": {
+            "session_id": session_id  # Pass the session ID in 'configurable'
+        }
+    }
+    
+    # Invoke the chat agent and get the response
+    response = chat_agent.invoke(input_data, config)  # Now passing two dictionaries
+    
+    # Log the raw result returned by the agent
+    logging.debug(f"Raw result from chat agent: {response}")
+    
+    # Save the AI response
+    save_message(session_id, "AI", response['output'], user_id)
 
     return response['output']
-

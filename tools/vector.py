@@ -51,22 +51,19 @@ if vector_store is None:
     index_name="moviePlots",
     embedding_node_property="plotEmbedding",
     retrieval_query=retrieval_query,
+    node_label = "Movie"
     )
         
-retriever = vector_store.as_retriever()
+retriever = vector_store.as_retriever(
+    search_type="similarity_score_threshold",
+    search_kwargs={'score_threshold': 0.5}
+)
 
-# Put context in a readable format ex:
-# context = [{'m.title': 'Leaving Las Vegas'}, {'m.title': 'Piano, The'}, ...]  # Example structure
-# formatted_context = "\n".join([f"Title: {movie['m.title']}" for movie in context])
 
-# # Update instructions to include the formatted context
-# instructions = (
-#     f"Use the given context to answer the question. Context:\n{formatted_context}\n"
-#     "If you don't know the answer, say you don't know."
 
 instructions = (
     
-    "Use the given context to answer the question. Context: \n{context}\n"
+    "Use the given {context} to answer the question."
     "If you don't know the answer, say you don't know"
 
 )
@@ -81,8 +78,10 @@ prompt = ChatPromptTemplate.from_messages(
 
 question_answer_chain = create_stuff_documents_chain(llm, prompt)
 plot_retriever = create_retrieval_chain(
-    retriever, 
-    question_answer_chain
+    retriever,
+    question_answer_chain,
+      
+    # swapped these two
 )
 
 def get_movie_plot(input):
