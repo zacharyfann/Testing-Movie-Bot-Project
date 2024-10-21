@@ -28,6 +28,7 @@ chat_prompt = ChatPromptTemplate.from_messages(
 movie_chat = chat_prompt | llm | StrOutputParser()
 
 
+
 tools = [
    
    

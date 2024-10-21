@@ -61,9 +61,19 @@ retriever = vector_store.as_retriever(
 
 
 
+# Put context in a readable format ex:
+# context = [{'m.title': 'Leaving Las Vegas'}, {'m.title': 'Piano, The'}, ...]  # Example structure
+# formatted_context = "\n".join([f"Title: {movie['m.title']}" for movie in context])
+
+# # Update instructions to include the formatted context
+# instructions = (
+#     f"Use the given context to answer the question. Context:\n{formatted_context}\n"
+#     "If you don't know the answer, say you don't know."
+
 instructions = (
     
     "Use the given {context} to answer the question."
+    "Use the given context to answer the question. Context: \n{context}\n"
     "If you don't know the answer, say you don't know"
 
 )
