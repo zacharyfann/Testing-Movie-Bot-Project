@@ -1,19 +1,22 @@
-= Build an Neo4j-backed Chatbot using Python
-
-This repository accompanies the link:https://graphacademy.neo4j.com/courses/llm-chatbot-python/?ref=github[Build an Neo4j-backed Chatbot using Python^] course on link:https://graphacademy.neo4j.com/?ref=github[Neo4j GraphAcademy^].
-
-For a complete walkthrough of this repository, link:https://graphacademy.neo4j.com/courses/llm-chatbot-python/?ref=github[enrol now^].
-
-
-== Running the application
+Running the application
 
 To run the application, you must install the libraries listed in `requirements.txt`.
 
 [source,sh]
 pip install -r requirements.txt
 
+Download/Install Neo4j Desktop: You need a working version of 5.18+ and a database with nodes of movies, actors, directors, users and relationships.
+After this step, make sure to install APOC plugin
 
-Then run the `streamlit run` command to start the app on link:http://localhost:8501/[http://localhost:8501/^].
+Download/Install Postman: 
+Navigate in Postman to Fetching User Question
+Switch to POST and add the link ex: http://127.0.0.1:8000/api/chat
+Click Body, then Raw, and JSON and add:
 
-[source,sh]
-streamlit run bot.py
+{
+    "user_input": " (sample question)What is the highest rated movie that user_id 7 has rated in that has actor Tom Hanks?",
+    "user_id": "7"
+}
+
+Then start up the Neo4j Desktop and run this command in the terminal:
+uvicorn  main:app --reload
