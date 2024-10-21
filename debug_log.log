@@ -1,0 +1,902 @@
+2024-10-20 21:02:12,243 - DEBUG - [#0000]  _: <POOL> created, direct address IPv4Address(('localhost', 7687))
+2024-10-20 21:02:12,243 - DEBUG - [#0000]  _: <POOL> acquire direct connection, access_mode='WRITE', database='neo4j'
+2024-10-20 21:02:12,243 - DEBUG - [#0000]  _: <POOL> trying to hand out new connection
+2024-10-20 21:02:12,244 - DEBUG - [#0000]  _: <RESOLVE> in: localhost:7687
+2024-10-20 21:02:12,244 - DEBUG - [#0000]  _: <RESOLVE> dns resolver out: [::1]:7687
+2024-10-20 21:02:12,245 - DEBUG - [#0000]  C: <OPEN> [::1]:7687
+2024-10-20 21:02:14,263 - DEBUG - [#0000]  S: <ERROR> ConnectionRefusedError 10061 'No connection could be made because the target machine actively refused it' None 10061 None
+2024-10-20 21:02:14,263 - DEBUG - [#0000]  C: <CLOSE> [::1]:7687
+2024-10-20 21:02:14,264 - DEBUG - [#0000]  S: <CONNECTION FAILED> ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 10061] No connection could be made because the target machine actively refused it)
+2024-10-20 21:02:14,264 - DEBUG - [#0000]  _: <RESOLVE> dns resolver out: 127.0.0.1:7687
+2024-10-20 21:02:14,264 - DEBUG - [#0000]  C: <OPEN> 127.0.0.1:7687
+2024-10-20 21:02:14,279 - DEBUG - [#E9F6]  C: <MAGIC> 0x6060B017
+2024-10-20 21:02:14,279 - DEBUG - [#E9F6]  C: <HANDSHAKE> 0x00040405 0x00020404 0x00000104 0x00000003
+2024-10-20 21:02:14,280 - DEBUG - [#E9F6]  S: <HANDSHAKE> 0x00000405
+2024-10-20 21:02:14,280 - DEBUG - [#E9F6]  C: HELLO {'user_agent': 'neo4j-python/5.21.0 Python/3.12.2-final-0 (win32)', 'bolt_agent': {'product': 'neo4j-python/5.21.0', 'platform': 'Windows 11; AMD64', 'language': 'Python/3.12.2-final-0', 'language_details': 'CPython; 3.12.2-final-0 (tags/v3.12.2:6abddd9, Feb  6 2024 21:26:36) [MSC v.1937 64 bit (AMD64)]'}}
+2024-10-20 21:02:14,280 - DEBUG - [#E9F6]  _: <CONNECTION> client state: CONNECTED > AUTHENTICATION
+2024-10-20 21:02:14,280 - DEBUG - [#E9F6]  C: LOGON {'scheme': 'basic', 'principal': 'neo4j', 'credentials': '*******'}
+2024-10-20 21:02:14,280 - DEBUG - [#E9F6]  _: <CONNECTION> client state: AUTHENTICATION > READY
+2024-10-20 21:02:14,281 - DEBUG - [#E9F6]  S: SUCCESS {'server': 'Neo4j/5.22.0', 'connection_id': 'bolt-34', 'hints': {'connection.recv_timeout_seconds': 120}}
+2024-10-20 21:02:14,281 - DEBUG - [#E9F6]  _: <CONNECTION> server state: CONNECTED > AUTHENTICATION
+2024-10-20 21:02:14,282 - DEBUG - [#E9F6]  S: SUCCESS {}
+2024-10-20 21:02:14,282 - DEBUG - [#E9F6]  _: <CONNECTION> server state: AUTHENTICATION > READY
+2024-10-20 21:02:14,282 - DEBUG - [#E9F6]  C: BEGIN {'db': 'neo4j'}
+2024-10-20 21:02:14,282 - DEBUG - [#E9F6]  _: <CONNECTION> client state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:02:14,282 - DEBUG - [#E9F6]  C: RUN '\n    MATCH (u:User {userId: $user_id})-[r:RATED]->(m:Movie)\n    WHERE r.rating IS NOT NULL\n    RETURN m.title AS movie_name, r.rating AS rating\n' {'user_id': '7'} {}
+2024-10-20 21:02:14,282 - DEBUG - [#E9F6]  C: PULL {'n': 1000}
+2024-10-20 21:02:14,283 - DEBUG - [#E9F6]  S: SUCCESS {}
+2024-10-20 21:02:14,283 - DEBUG - [#E9F6]  _: <CONNECTION> server state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:02:14,325 - DEBUG - [#E9F6]  S: SUCCESS {'t_first': 41, 'fields': ['movie_name', 'rating'], 'qid': 0}
+2024-10-20 21:02:14,326 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,326 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,326 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,326 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,327 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,327 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,327 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,327 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,327 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,327 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,327 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,327 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,327 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,327 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,327 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,327 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,328 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,328 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,328 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,328 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,328 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,328 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,328 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,328 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,328 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,328 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,328 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,328 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,328 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,328 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,329 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,329 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,329 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,329 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,329 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,329 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,329 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,329 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,329 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,329 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,329 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,329 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,329 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,329 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,330 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,330 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,330 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,330 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,330 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,330 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,330 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,330 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,330 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,330 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,330 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,330 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,330 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,330 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,331 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,332 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,332 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,332 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,332 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,332 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,332 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,332 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,332 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,332 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,332 - DEBUG - [#E9F6]  S: RECORD * 1
+2024-10-20 21:02:14,333 - DEBUG - [#E9F6]  S: SUCCESS {'type': 'r', 't_last': 0, 'db': 'neo4j'}
+2024-10-20 21:02:14,333 - DEBUG - [#E9F6]  C: COMMIT
+2024-10-20 21:02:14,333 - DEBUG - [#E9F6]  _: <CONNECTION> client state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:02:14,333 - DEBUG - [#E9F6]  S: SUCCESS {'bookmark': 'FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJtpA='}
+2024-10-20 21:02:14,334 - DEBUG - [#E9F6]  _: <CONNECTION> server state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:02:14,334 - DEBUG - [#E9F6]  _: <POOL> released bolt-34
+2024-10-20 21:02:14,334 - DEBUG - [#0000]  _: <POOL> close
+2024-10-20 21:02:14,334 - DEBUG - [#E9F6]  C: GOODBYE
+2024-10-20 21:02:14,334 - DEBUG - [#E9F6]  C: <CLOSE>
+2024-10-20 21:02:14,335 - DEBUG - Raw ratings result: EagerResult(records=[<Record movie_name='Strange Days' rating=2.0>, <Record movie_name='Walk in the Clouds, A' rating=3.0>, <Record movie_name='Birdcage, The' rating=4.0>, <Record movie_name='Rob Roy' rating=4.0>, <Record movie_name='Braveheart' rating=5.0>, <Record movie_name='Rumble in the Bronx (Hont faan kui)' rating=4.0>, <Record movie_name='Cry, the Beloved Country' rating=4.0>, <Record movie_name='Happy Gilmore' rating=3.0>, <Record movie_name='Dangerous Minds' rating=3.0>, <Record movie_name='Babe' rating=4.0>, <Record movie_name='GoldenEye' rating=3.0>, <Record movie_name='Get Shorty' rating=3.0>, <Record movie_name='Toy Story' rating=3.0>, <Record movie_name='Mrs. Doubtfire' rating=3.0>, <Record movie_name='Jurassic Park' rating=4.0>, <Record movie_name='True Lies' rating=4.0>, <Record movie_name='Speed' rating=3.0>, <Record movie_name='Mask, The' rating=3.0>, <Record movie_name='Lion King, The' rating=3.0>, <Record movie_name='Four Weddings and a Funeral' rating=3.0>, <Record movie_name='Forrest Gump' rating=3.0>, <Record movie_name='Flintstones, The' rating=3.0>, <Record movie_name='Adventures of Priscilla, Queen of the Desert, The' rating=3.0>, <Record movie_name='Tommy Boy' rating=3.0>, <Record movie_name='Star Trek: Generations' rating=3.0>, <Record movie_name='Shawshank Redemption, The' rating=5.0>, <Record movie_name='Stargate' rating=2.0>, <Record movie_name='Madness of King George, The' rating=3.0>, <Record movie_name='Star Wars: Episode IV - A New Hope' rating=5.0>, <Record movie_name='Sleepless in Seattle' rating=3.0>, <Record movie_name='Shadowlands' rating=4.0>, <Record movie_name='Nightmare Before Christmas, The' rating=4.0>, <Record movie_name='Blade Runner' rating=4.0>, <Record movie_name='Terminator 2: Judgment Day' rating=3.0>, <Record movie_name='Aladdin' rating=4.0>, <Record movie_name='Batman' rating=3.0>, <Record movie_name='Dances with Wolves' rating=4.0>, <Record movie_name='Beauty and the Beast' rating=3.0>, <Record movie_name='Beavis and Butt-Head Do America' rating=5.0>, <Record movie_name='Raising Arizona' rating=3.0>, <Record movie_name='Last of the Mohicans, The' rating=1.0>, <Record movie_name='Star Trek II: The Wrath of Khan' rating=4.0>, <Record movie_name='Star Trek V: The Final Frontier' rating=2.0>, <Record movie_name='Star Trek IV: The Voyage Home' rating=3.0>, <Record movie_name='Star Trek III: The Search for Spock' rating=3.0>, <Record movie_name='Mirror Has Two Faces, The' rating=3.0>, <Record movie_name='When Harry Met Sally...' rating=3.0>, <Record movie_name='Star Trek VI: The Undiscovered Country' rating=3.0>, <Record movie_name='Star Trek: The Motion Picture' rating=3.0>, <Record movie_name='This Is Spinal Tap' rating=4.0>, <Record movie_name='Indiana Jones and the Last Crusade' rating=3.0>, <Record movie_name='Pink Floyd: The Wall' rating=3.0>, <Record movie_name='Field of Dreams' rating=4.0>, <Record movie_name='Back to the Future' rating=3.0>, <Record movie_name='Highlander' rating=4.0>, <Record movie_name='Young Frankenstein' rating=3.0>, <Record movie_name='Ben-Hur' rating=4.0>, <Record movie_name='Amadeus' rating=5.0>, <Record movie_name='Right Stuff, The' rating=4.0>, <Record movie_name='Terminator, The' rating=4.0>, <Record movie_name='Glory' rating=5.0>, <Record movie_name='Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark)' rating=5.0>, <Record movie_name='Star Wars: Episode VI - Return of the Jedi' rating=5.0>, <Record movie_name='Blues Brothers, The' rating=4.0>, <Record movie_name='Grand Day Out with Wallace and Gromit, A' rating=5.0>, <Record movie_name='Princess Bride, The' rating=3.0>, <Record movie_name='Star Wars: Episode V - The Empire Strikes Back' rating=5.0>, <Record movie_name='Wallace & Gromit: The Wrong Trousers' rating=5.0>, <Record movie_name='Monty Python and the Holy Grail' rating=4.0>, <Record movie_name='Escape from New York' rating=3.0>, <Record movie_name='Return of the Pink Panther, The' rating=3.0>, <Record movie_name='E.T. the Extra-Terrestrial' rating=3.0>, <Record movie_name="Monty Python's Life of Brian" rating=4.0>, <Record movie_name='Fish Called Wanda, A' rating=4.0>, <Record movie_name='Willy Wonka & the Chocolate Factory' rating=3.0>, <Record movie_name='Die Hard' rating=3.0>, <Record movie_name='2001: A Space Odyssey' rating=4.0>, <Record movie_name='Eraser' rating=2.0>, <Record movie_name='Independence Day (a.k.a. ID4)' rating=3.0>, <Record movie_name='Wallace & Gromit: A Close Shave' rating=5.0>, <Record movie_name='Barb Wire' rating=1.0>, <Record movie_name='Craft, The' rating=2.0>, <Record movie_name='Twister' rating=1.0>, <Record movie_name='Truth About Cats & Dogs, The' rating=3.0>, <Record movie_name='Wallace & Gromit: The Best of Aardman Animation' rating=5.0>, <Record movie_name='Heavy Metal' rating=3.0>, <Record movie_name='Mystery Science Theater 3000: The Movie' rating=4.0>, <Record movie_name='Snow White and the Seven Dwarfs' rating=4.0>], summary=<neo4j._work.summary.ResultSummary object at 0x0000011CDC3066F0>, keys=['movie_name', 'rating'])
+2024-10-20 21:02:14,335 - DEBUG - [#0000]  _: <POOL> acquire direct connection, access_mode='WRITE', database=None
+2024-10-20 21:02:14,335 - DEBUG - [#E9F0]  _: <POOL> picked existing connection bolt-33
+2024-10-20 21:02:14,335 - DEBUG - [#E9F0]  _: <POOL> checked re_auth auth=None updated=False force=False
+2024-10-20 21:02:14,335 - DEBUG - [#E9F0]  _: <POOL> handing out existing connection
+2024-10-20 21:02:14,335 - DEBUG - [#E9F0]  C: BEGIN {}
+2024-10-20 21:02:14,335 - DEBUG - [#E9F0]  _: <CONNECTION> client state: STREAMING > TX_READY_OR_TX_STREAMING
+2024-10-20 21:02:14,335 - DEBUG - [#E9F0]  C: RUN 'MERGE (s:`Session` {id:$session_id})' {'session_id': '1dfbaaa6-0281-4eaa-a4c4-7805ac23ff8c'} {}
+2024-10-20 21:02:14,335 - DEBUG - [#E9F0]  C: PULL {'n': 1000}
+2024-10-20 21:02:14,336 - DEBUG - [#E9F0]  S: SUCCESS {}
+2024-10-20 21:02:14,336 - DEBUG - [#E9F0]  _: <CONNECTION> server state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:02:14,337 - DEBUG - [#E9F0]  S: SUCCESS {'t_first': 1, 'fields': [], 'qid': 0}
+2024-10-20 21:02:14,338 - DEBUG - [#E9F0]  S: SUCCESS {'stats': {'contains-updates': True, 'labels-added': 1, 'nodes-created': 1, 'properties-set': 1}, 'type': 'w', 't_last': 0, 'db': 'neo4j'}
+2024-10-20 21:02:14,338 - DEBUG - [#E9F0]  C: COMMIT
+2024-10-20 21:02:14,338 - DEBUG - [#E9F0]  _: <CONNECTION> client state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:02:14,340 - DEBUG - [#E9F0]  S: SUCCESS {'bookmark': 'FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJt5A='}
+2024-10-20 21:02:14,341 - DEBUG - [#E9F0]  _: <CONNECTION> server state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:02:14,341 - DEBUG - [#E9F0]  _: <POOL> released bolt-33
+2024-10-20 21:02:14,377 - DEBUG - [#0000]  _: <POOL> acquire direct connection, access_mode='WRITE', database=None
+2024-10-20 21:02:14,377 - DEBUG - [#E9F0]  _: <POOL> picked existing connection bolt-33
+2024-10-20 21:02:14,377 - DEBUG - [#E9F0]  _: <POOL> checked re_auth auth=None updated=False force=False
+2024-10-20 21:02:14,377 - DEBUG - [#E9F0]  _: <POOL> handing out existing connection
+2024-10-20 21:02:14,377 - DEBUG - [#E9F0]  C: BEGIN {'bookmarks': ['FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJt5A=']}
+2024-10-20 21:02:14,377 - DEBUG - [#E9F0]  _: <CONNECTION> client state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:02:14,377 - DEBUG - [#E9F0]  C: RUN 'MATCH (s:`Session`)-[:LAST_MESSAGE]->(last_message) WHERE s.id = $session_id MATCH p=(last_message)<-[:NEXT*0..6]-() WITH p, length(p) AS length ORDER BY length DESC LIMIT 1 UNWIND reverse(nodes(p)) AS node RETURN {data:{content: node.content}, type:node.type} AS result' {'session_id': '1dfbaaa6-0281-4eaa-a4c4-7805ac23ff8c'} {}
+2024-10-20 21:02:14,377 - DEBUG - [#E9F0]  C: PULL {'n': 1000}
+2024-10-20 21:02:14,379 - DEBUG - [#E9F0]  S: SUCCESS {}
+2024-10-20 21:02:14,379 - DEBUG - [#E9F0]  _: <CONNECTION> server state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:02:14,379 - DEBUG - [#E9F0]  S: SUCCESS {'t_first': 0, 'fields': ['result'], 'qid': 0}
+2024-10-20 21:02:14,380 - DEBUG - [#E9F0]  S: SUCCESS {'type': 'r', 't_last': 1, 'db': 'neo4j'}
+2024-10-20 21:02:14,380 - DEBUG - [#E9F0]  C: COMMIT
+2024-10-20 21:02:14,380 - DEBUG - [#E9F0]  _: <CONNECTION> client state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:02:14,381 - DEBUG - [#E9F0]  S: SUCCESS {'bookmark': 'FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJt5A='}
+2024-10-20 21:02:14,381 - DEBUG - [#E9F0]  _: <CONNECTION> server state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:02:14,381 - DEBUG - [#E9F0]  _: <POOL> released bolt-33
+2024-10-20 21:02:14,388 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:14,390 - WARNING - Error in RootListenersTracer.on_chain_end callback: ValueError()
+2024-10-20 21:02:14,390 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:14,391 - WARNING - Error in callback coroutine: ValueError()
+2024-10-20 21:02:14,393 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:14,413 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:14,419 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:14,425 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:14,427 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:14,429 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:14,430 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:14,431 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:14,434 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:14,437 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:14,439 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:14,442 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': '\n    You are a movie expert providing information about movies.\n    Be as helpful as possible and return as much information as possible.\n    Do not answer any questions that do not relate to movies, actors, plot, or directors.\n\n    Do not answer any questions using your pre-trained knowledge, only use the information provided in the context and relevant information from the user_id.                                  \n\n    If the user says "I", assume they mean the specified parameter "userId" \n    TOOLS:\n    ------\n\n    You have access to the following tools:\n\n    General Chat(input: \'Input\', config: \'Optional[RunnableConfig]\' = None, **kwargs: \'Any\') -> \'Output\' - For general movie chat not covered by other tools\nMovie Plot Search(input) - For when you need to find information about movies based on a plot\nMovie information(query: str) -> dict - Provide information about movies questions using Cypher\n\n    To use a tool, please use the following format:\n\n    ```\n    Thought: Do I need to use a tool? Yes\n    Action: the action to take, should be one of [General Chat, Movie Plot Search, Movie information]\n    Action Input: the input to the action\n    Observation: the result of the action\n    ```\n\n    When you have a response to say to the Human, or if you do not need to use a tool, you MUST use the format:\n\n    ```\n    Thought: Do I need to use a tool? No\n    Final Answer: [your response here]\n    ```\n\n    Begin!\n\n    Previous conversation history:\n    []\n\n    New input:  What is the lowest rated movie that user_id 7 has rated\n    \n    ', 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'n': 1, 'stop': ['\nObservation'], 'stream': True, 'temperature': 0.7}}
+2024-10-20 21:02:14,443 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-20 21:02:14,443 - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2024-10-20 21:02:14,469 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000011CDF636D80>
+2024-10-20 21:02:14,469 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000011CDCFA3750> server_hostname='api.openai.com' timeout=None
+2024-10-20 21:02:14,575 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000011CDE9BDD30>
+2024-10-20 21:02:14,575 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-20 21:02:14,575 - DEBUG - send_request_headers.complete
+2024-10-20 21:02:14,575 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-20 21:02:14,576 - DEBUG - send_request_body.complete
+2024-10-20 21:02:14,576 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-20 21:02:14,909 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:02:15 GMT'), (b'Content-Type', b'text/event-stream; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-myxufenx5ig5dud2h29zdq9d'), (b'openai-processing-ms', b'212'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199592'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'122ms'), (b'x-request-id', b'req_e324ff074ef63edcfd769b18fbc07f64'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=v8FINLteHrL0KHjzYkgK0D_v8GU_tl6dQAGpTHzbEdg-1729483335-1.0.1.1-3ay5D2oZX9chueEeIYeivxFYRFWAL0D5AdXFD3QS36PukabDcd1mQgwRmcxJh7VpNOPuWVY1uVz2_AzbP_7Osg; path=/; expires=Mon, 21-Oct-24 04:32:15 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=p0fCGhe46NzDfJNaTGYhcKt__4lW1I5ZkoXhEG.hw4M-1729483335022-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e59d9f81b7d52-LAX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-20 21:02:14,909 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-20 21:02:14,909 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Mon, 21 Oct 2024 04:02:15 GMT'), ('content-type', 'text/event-stream; charset=utf-8'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-myxufenx5ig5dud2h29zdq9d'), ('openai-processing-ms', '212'), ('openai-version', '2020-10-01'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199592'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '122ms'), ('x-request-id', 'req_e324ff074ef63edcfd769b18fbc07f64'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=v8FINLteHrL0KHjzYkgK0D_v8GU_tl6dQAGpTHzbEdg-1729483335-1.0.1.1-3ay5D2oZX9chueEeIYeivxFYRFWAL0D5AdXFD3QS36PukabDcd1mQgwRmcxJh7VpNOPuWVY1uVz2_AzbP_7Osg; path=/; expires=Mon, 21-Oct-24 04:32:15 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=p0fCGhe46NzDfJNaTGYhcKt__4lW1I5ZkoXhEG.hw4M-1729483335022-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8d5e59d9f81b7d52-LAX'), ('alt-svc', 'h3=":443"; ma=86400')])
+2024-10-20 21:02:14,910 - DEBUG - request_id: req_e324ff074ef63edcfd769b18fbc07f64
+2024-10-20 21:02:14,910 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-20 21:02:15,029 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,030 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,051 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,054 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,055 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,067 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,070 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,071 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,076 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,078 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,080 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,089 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,090 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,092 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,107 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,109 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,110 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,155 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,157 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,159 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,177 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,179 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,181 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,293 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,295 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,297 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,331 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,333 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,335 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,369 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,371 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,373 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,375 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,376 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,379 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,380 - DEBUG - receive_response_body.complete
+2024-10-20 21:02:15,380 - DEBUG - response_closed.started
+2024-10-20 21:02:15,380 - DEBUG - response_closed.complete
+2024-10-20 21:02:15,381 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,382 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,385 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,387 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,389 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,391 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,395 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,402 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,404 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,406 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:15,412 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': '\nYou are an expert Neo4j Developer translating user questions into Cypher to answer questions about movies and provide recommendations.\nConvert the user\'s question based on the schema.\n\nUse only the provided relationship types and properties in the schema.\nDo not use any other relationship types or properties that are not provided.\nWhen using a parameter userId, make sure that the id is in quotes/ is a string value                                        \n\nDo not return entire nodes or embedding properties.\n\nFine Tuning:\n\nFor movie titles that begin with "The", move "the" to the end. For example "The 39 Steps" becomes "39 Steps, The" or "the matrix" becomes "Matrix, The".\n\nExample Cypher Statements:\nRemember RETURN can only be used at the end of a query!\n\n1. To find who acted in a movie:\n```\nMATCH (p:Person)-[r:ACTED_IN]->(m:Movie {title: "Movie Title"})\nRETURN p.name, r.role\n```\n\n2. To find who directed a movie:\n```\nMATCH (p:Person)-[r:DIRECTED]->(m:Movie {title: "Movie Title"})\nRETURN p.name\n```\n3. To find the actors and directors of a movie:\n```\nMATCH (m:Movie {title: "Movie Title"})\nOPTIONAL MATCH (m)<-[:DIRECTED]-(d:Person)\nOPTIONAL MATCH (m)<-[:ACTED_IN]-(a:Person)\nRETURN m.title AS movie,\n       collect(DISTINCT d.name) AS directors,\n       collect(DISTINCT a.name) AS actors\n```\n\n4. How to find how many degrees of separation there are between two people:\n```\nMATCH path = shortestPath(\n  (p1:Person {name: "Actor 1"})-[:ACTED_IN|DIRECTED*]-(p2:Person {name: "Actor 2"})\n)\nWITH path, p1, p2, relationships(path) AS rels\nRETURN\n  p1 { .name, .born, link:\'https://www.themoviedb.org/person/\'+ p1.tmdbId } AS start,\n  p2 { .name, .born, link:\'https://www.themoviedb.org/person/\'+ p2.tmdbId } AS end,\n  reduce(output = \'\', i in range(0, length(path)-1) |\n    output + CASE\n      WHEN i = 0 THEN\n       startNode(rels[i]).name + CASE WHEN type(rels[i]) = \'ACTED_IN\' THEN \' played \'+ rels[i].role +\' in \'ELSE \' directed \' END + endNode(rels[i]).title\n       ELSE\n         \' with \'+ startNode(rels[i]).name + \', who \'+ CASE WHEN type(rels[i]) = \'ACTED_IN\' THEN \'played \'+ rels[i].role +\' in \'\n    ELSE \'directed \'\n      END + endNode(rels[i]).title\n      END\n  ) AS pathBetweenPeople\n\n```\n5. To find a movie given a Genre and highly rated:\n```\nMATCH (m:Movie)-[r:IN_GENRE]->(:Genre {name: "Genre"})\nWHERE m.imdbRating > 7.5\nRETURN m.title\n```\n\nSchema:\nNode properties are the following:\nMovie {url: STRING, runtime: INTEGER, revenue: INTEGER, budget: INTEGER, plotEmbedding: LIST, imdbRating: FLOAT, released: STRING, countries: LIST, languages: LIST, plot: STRING, imdbVotes: INTEGER, imdbId: STRING, year: INTEGER, poster: STRING, movieId: STRING, tmdbId: STRING, title: STRING},Genre {name: STRING},User {userId: STRING, name: STRING},Actor {url: STRING, name: STRING, tmdbId: STRING, bornIn: STRING, bio: STRING, died: DATE, born: DATE, imdbId: STRING, poster: STRING},Director {url: STRING, bornIn: STRING, bio: STRING, died: DATE, born: DATE, imdbId: STRING, name: STRING, poster: STRING, tmdbId: STRING},Person {url: STRING, bornIn: STRING, bio: STRING, died: DATE, born: DATE, imdbId: STRING, name: STRING, poster: STRING, tmdbId: STRING},Session {id: STRING},Message {content: STRING, type: STRING}\nRelationship properties are the following:\nRATED {rating: FLOAT, timestamp: INTEGER},ACTED_IN {role: STRING},DIRECTED {role: STRING}\nThe relationships are the following:\n(:Movie)-[:IN_GENRE]->(:Genre),(:User)-[:RATED]->(:Movie),(:Actor)-[:ACTED_IN]->(:Movie),(:Actor)-[:DIRECTED]->(:Movie),(:Director)-[:DIRECTED]->(:Movie),(:Director)-[:ACTED_IN]->(:Movie),(:Person)-[:ACTED_IN]->(:Movie),(:Person)-[:DIRECTED]->(:Movie),(:Session)-[:LAST_MESSAGE]->(:Message),(:Message)-[:NEXT]->(:Message)\n\nQuestion:\nWhat is the lowest rated movie that user_id 7 has rated\n', 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'n': 1, 'stream': False, 'temperature': 0.7}}
+2024-10-20 21:02:15,413 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-20 21:02:15,413 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-20 21:02:15,413 - DEBUG - send_request_headers.complete
+2024-10-20 21:02:15,413 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-20 21:02:15,414 - DEBUG - send_request_body.complete
+2024-10-20 21:02:15,414 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-20 21:02:16,396 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:02:16 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-myxufenx5ig5dud2h29zdq9d'), (b'openai-processing-ms', b'846'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9998'), (b'x-ratelimit-remaining-tokens', b'199036'), (b'x-ratelimit-reset-requests', b'16.428s'), (b'x-ratelimit-reset-tokens', b'289ms'), (b'x-request-id', b'req_c6e187f04ec0043a2d60f197c924b93a'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e59df3deb7d52-LAX'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-20 21:02:16,396 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-20 21:02:16,396 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-20 21:02:16,397 - DEBUG - receive_response_body.complete
+2024-10-20 21:02:16,397 - DEBUG - response_closed.started
+2024-10-20 21:02:16,397 - DEBUG - response_closed.complete
+2024-10-20 21:02:16,397 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:02:16 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-myxufenx5ig5dud2h29zdq9d', 'openai-processing-ms': '846', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9998', 'x-ratelimit-remaining-tokens': '199036', 'x-ratelimit-reset-requests': '16.428s', 'x-ratelimit-reset-tokens': '289ms', 'x-request-id': 'req_c6e187f04ec0043a2d60f197c924b93a', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e59df3deb7d52-LAX', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-20 21:02:16,397 - DEBUG - request_id: req_c6e187f04ec0043a2d60f197c924b93a
+2024-10-20 21:02:16,406 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,407 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,409 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,413 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,413 - DEBUG - [#0000]  _: <POOL> acquire direct connection, access_mode='WRITE', database='neo4j'
+2024-10-20 21:02:16,413 - DEBUG - [#E9F0]  _: <POOL> picked existing connection bolt-33
+2024-10-20 21:02:16,414 - DEBUG - [#E9F0]  _: <POOL> checked re_auth auth=None updated=False force=False
+2024-10-20 21:02:16,414 - DEBUG - [#E9F0]  _: <POOL> handing out existing connection
+2024-10-20 21:02:16,414 - DEBUG - [#E9F0]  C: RUN '\nMATCH (u:User {userId: "7"})-[:RATED]->(m:Movie)\nWITH u, m, MIN(m.imdbRating) AS minRating\nWHERE m.imdbRating = minRating\nRETURN m.title\n' {} {'db': 'neo4j'}
+2024-10-20 21:02:16,414 - DEBUG - [#E9F0]  _: <CONNECTION> client state: READY > STREAMING
+2024-10-20 21:02:16,414 - DEBUG - [#E9F0]  C: PULL {'n': 1000}
+2024-10-20 21:02:16,492 - DEBUG - [#E9F0]  S: SUCCESS {'t_first': 78, 'fields': ['m.title']}
+2024-10-20 21:02:16,492 - DEBUG - [#E9F0]  _: <CONNECTION> server state: READY > STREAMING
+2024-10-20 21:02:16,497 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,497 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,497 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,497 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,498 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,498 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,498 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,498 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,498 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,498 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,498 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,498 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,498 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,498 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,498 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,499 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,499 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,499 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,499 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,499 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,499 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,499 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,499 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,499 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,499 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,499 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,499 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,499 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,500 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,500 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,500 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,500 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,500 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,500 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,500 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,500 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,500 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,500 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,500 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,500 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,501 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,501 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,501 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,501 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,501 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,501 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,501 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,501 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,501 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,501 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,502 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,502 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,502 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,502 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,502 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,502 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,503 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,503 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,503 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,503 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,503 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,503 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,503 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,503 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,504 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,504 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,504 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,504 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,504 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,504 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,504 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,504 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,504 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,504 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,504 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,505 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,505 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,505 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,505 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,505 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,505 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,505 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,505 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,505 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,505 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,505 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,506 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,506 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:02:16,506 - DEBUG - [#E9F0]  S: SUCCESS {'bookmark': 'FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJt5A=', 'type': 'r', 't_last': 4, 'db': 'neo4j'}
+2024-10-20 21:02:16,506 - DEBUG - [#E9F0]  _: <CONNECTION> server state: STREAMING > READY
+2024-10-20 21:02:16,506 - DEBUG - [#E9F0]  _: <POOL> released bolt-33
+2024-10-20 21:02:16,507 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,509 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,513 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,514 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,517 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,521 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': "You are an assistant that helps to form nice and human understandable answers.\nThe information part contains the provided information that you must use to construct an answer.\nThe provided information is authoritative, you must never doubt it or try to use your internal knowledge to correct it.\nMake the answer sound as a response to the question. Do not mention that you based the result on the given information.\nHere is an example:\n\nQuestion: Which managers own Neo4j stocks?\nContext:[manager:CTL LLC, manager:JANE STREET GROUP LLC]\nHelpful Answer: CTL LLC, JANE STREET GROUP LLC owns Neo4j stocks.\n\nFollow this example when generating answers.\nIf the provided information is empty, say that you don't know the answer.\nInformation:\n[{'m.title': 'Strange Days'}, {'m.title': 'Walk in the Clouds, A'}, {'m.title': 'Birdcage, The'}, {'m.title': 'Rob Roy'}, {'m.title': 'Braveheart'}, {'m.title': 'Rumble in the Bronx (Hont faan kui)'}, {'m.title': 'Cry, the Beloved Country'}, {'m.title': 'Happy Gilmore'}, {'m.title': 'Dangerous Minds'}, {'m.title': 'Babe'}]\n\nQuestion: What is the lowest rated movie that user_id 7 has rated\nHelpful Answer:", 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'n': 1, 'stream': False, 'temperature': 0.7}}
+2024-10-20 21:02:16,522 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-20 21:02:16,522 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-20 21:02:16,522 - DEBUG - send_request_headers.complete
+2024-10-20 21:02:16,522 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-20 21:02:16,522 - DEBUG - send_request_body.complete
+2024-10-20 21:02:16,523 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-20 21:02:16,852 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:02:16 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-myxufenx5ig5dud2h29zdq9d'), (b'openai-processing-ms', b'207'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9997'), (b'x-ratelimit-remaining-tokens', b'199696'), (b'x-ratelimit-reset-requests', b'23.971s'), (b'x-ratelimit-reset-tokens', b'90ms'), (b'x-request-id', b'req_6d39f960a2f6c35b35a729255a61e347'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e59e61e667d52-LAX'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-20 21:02:16,853 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-20 21:02:16,853 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-20 21:02:16,853 - DEBUG - receive_response_body.complete
+2024-10-20 21:02:16,854 - DEBUG - response_closed.started
+2024-10-20 21:02:16,854 - DEBUG - response_closed.complete
+2024-10-20 21:02:16,854 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:02:16 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-myxufenx5ig5dud2h29zdq9d', 'openai-processing-ms': '207', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9997', 'x-ratelimit-remaining-tokens': '199696', 'x-ratelimit-reset-requests': '23.971s', 'x-ratelimit-reset-tokens': '90ms', 'x-request-id': 'req_6d39f960a2f6c35b35a729255a61e347', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e59e61e667d52-LAX', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-20 21:02:16,854 - DEBUG - request_id: req_6d39f960a2f6c35b35a729255a61e347
+2024-10-20 21:02:16,856 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,857 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,859 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,861 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,869 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,875 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,879 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,882 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,883 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,885 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,887 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,890 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,891 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,893 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:16,897 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': '\n    You are a movie expert providing information about movies.\n    Be as helpful as possible and return as much information as possible.\n    Do not answer any questions that do not relate to movies, actors, plot, or directors.\n\n    Do not answer any questions using your pre-trained knowledge, only use the information provided in the context and relevant information from the user_id.                                  \n\n    If the user says "I", assume they mean the specified parameter "userId" \n    TOOLS:\n    ------\n\n    You have access to the following tools:\n\n    General Chat(input: \'Input\', config: \'Optional[RunnableConfig]\' = None, **kwargs: \'Any\') -> \'Output\' - For general movie chat not covered by other tools\nMovie Plot Search(input) - For when you need to find information about movies based on a plot\nMovie information(query: str) -> dict - Provide information about movies questions using Cypher\n\n    To use a tool, please use the following format:\n\n    ```\n    Thought: Do I need to use a tool? Yes\n    Action: the action to take, should be one of [General Chat, Movie Plot Search, Movie information]\n    Action Input: the input to the action\n    Observation: the result of the action\n    ```\n\n    When you have a response to say to the Human, or if you do not need to use a tool, you MUST use the format:\n\n    ```\n    Thought: Do I need to use a tool? No\n    Final Answer: [your response here]\n    ```\n\n    Begin!\n\n    Previous conversation history:\n    []\n\n    New input:  What is the lowest rated movie that user_id 7 has rated\n    Thought: Do I need to use a tool? Yes\nAction: Movie information\nAction Input: What is the lowest rated movie that user_id 7 has rated\nObservation: {\'query\': \'What is the lowest rated movie that user_id 7 has rated\', \'result\': "I don\'t know the answer."}\nThought: \n    ', 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'n': 1, 'stop': ['\nObservation'], 'stream': True, 'temperature': 0.7}}
+2024-10-20 21:02:16,897 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-20 21:02:16,897 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-20 21:02:16,898 - DEBUG - send_request_headers.complete
+2024-10-20 21:02:16,898 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-20 21:02:16,898 - DEBUG - send_request_body.complete
+2024-10-20 21:02:16,898 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-20 21:02:17,236 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:02:17 GMT'), (b'Content-Type', b'text/event-stream; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-myxufenx5ig5dud2h29zdq9d'), (b'openai-processing-ms', b'217'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9996'), (b'x-ratelimit-remaining-tokens', b'199527'), (b'x-ratelimit-reset-requests', b'32.235s'), (b'x-ratelimit-reset-tokens', b'141ms'), (b'x-request-id', b'req_2381e2d9c43dfe7cdc33482191db841c'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e59e879117d52-LAX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-20 21:02:17,237 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-20 21:02:17,237 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:02:17 GMT', 'content-type': 'text/event-stream; charset=utf-8', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-myxufenx5ig5dud2h29zdq9d', 'openai-processing-ms': '217', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9996', 'x-ratelimit-remaining-tokens': '199527', 'x-ratelimit-reset-requests': '32.235s', 'x-ratelimit-reset-tokens': '141ms', 'x-request-id': 'req_2381e2d9c43dfe7cdc33482191db841c', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e59e879117d52-LAX', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-20 21:02:17,237 - DEBUG - request_id: req_2381e2d9c43dfe7cdc33482191db841c
+2024-10-20 21:02:17,237 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-20 21:02:17,279 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,281 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,304 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,306 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,308 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,331 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,333 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,335 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,352 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,354 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,356 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,358 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,359 - DEBUG - receive_response_body.complete
+2024-10-20 21:02:17,359 - DEBUG - response_closed.started
+2024-10-20 21:02:17,359 - DEBUG - response_closed.complete
+2024-10-20 21:02:17,360 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,361 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,364 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,365 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,367 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,369 - DEBUG - [#0000]  _: <POOL> acquire direct connection, access_mode='WRITE', database=None
+2024-10-20 21:02:17,369 - DEBUG - [#E9F0]  _: <POOL> picked existing connection bolt-33
+2024-10-20 21:02:17,369 - DEBUG - [#E9F0]  _: <POOL> checked re_auth auth=None updated=False force=False
+2024-10-20 21:02:17,369 - DEBUG - [#E9F0]  _: <POOL> handing out existing connection
+2024-10-20 21:02:17,369 - DEBUG - [#E9F0]  C: BEGIN {'bookmarks': ['FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJt5A=']}
+2024-10-20 21:02:17,369 - DEBUG - [#E9F0]  _: <CONNECTION> client state: STREAMING > TX_READY_OR_TX_STREAMING
+2024-10-20 21:02:17,370 - DEBUG - [#E9F0]  C: RUN 'MATCH (s:`Session`) WHERE s.id = $session_id OPTIONAL MATCH (s)-[lm:LAST_MESSAGE]->(last_message) CREATE (s)-[:LAST_MESSAGE]->(new:Message) SET new += {type:$type, content:$content} WITH new, lm, last_message WHERE last_message IS NOT NULL CREATE (last_message)-[:NEXT]->(new) DELETE lm' {'type': 'human', 'content': ' What is the lowest rated movie that user_id 7 has rated', 'session_id': '1dfbaaa6-0281-4eaa-a4c4-7805ac23ff8c'} {}
+2024-10-20 21:02:17,370 - DEBUG - [#E9F0]  C: PULL {'n': 1000}
+2024-10-20 21:02:17,371 - DEBUG - [#E9F0]  S: SUCCESS {}
+2024-10-20 21:02:17,371 - DEBUG - [#E9F0]  _: <CONNECTION> server state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:02:17,373 - DEBUG - [#E9F0]  S: SUCCESS {'t_first': 2, 'fields': [], 'qid': 0}
+2024-10-20 21:02:17,373 - DEBUG - [#E9F0]  S: SUCCESS {'stats': {'contains-updates': True, 'labels-added': 1, 'relationships-created': 1, 'nodes-created': 1, 'properties-set': 2}, 'type': 'w', 't_last': 0, 'db': 'neo4j'}
+2024-10-20 21:02:17,373 - DEBUG - [#E9F0]  C: COMMIT
+2024-10-20 21:02:17,373 - DEBUG - [#E9F0]  _: <CONNECTION> client state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:02:17,376 - DEBUG - [#E9F0]  S: SUCCESS {'bookmark': 'FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJuJA='}
+2024-10-20 21:02:17,376 - DEBUG - [#E9F0]  _: <CONNECTION> server state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:02:17,376 - DEBUG - [#E9F0]  _: <POOL> released bolt-33
+2024-10-20 21:02:17,376 - DEBUG - [#0000]  _: <POOL> acquire direct connection, access_mode='WRITE', database=None
+2024-10-20 21:02:17,376 - DEBUG - [#E9F0]  _: <POOL> picked existing connection bolt-33
+2024-10-20 21:02:17,376 - DEBUG - [#E9F0]  _: <POOL> checked re_auth auth=None updated=False force=False
+2024-10-20 21:02:17,376 - DEBUG - [#E9F0]  _: <POOL> handing out existing connection
+2024-10-20 21:02:17,377 - DEBUG - [#E9F0]  C: BEGIN {'bookmarks': ['FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJuJA=']}
+2024-10-20 21:02:17,377 - DEBUG - [#E9F0]  _: <CONNECTION> client state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:02:17,377 - DEBUG - [#E9F0]  C: RUN 'MATCH (s:`Session`) WHERE s.id = $session_id OPTIONAL MATCH (s)-[lm:LAST_MESSAGE]->(last_message) CREATE (s)-[:LAST_MESSAGE]->(new:Message) SET new += {type:$type, content:$content} WITH new, lm, last_message WHERE last_message IS NOT NULL CREATE (last_message)-[:NEXT]->(new) DELETE lm' {'type': 'ai', 'content': "I don't know the answer.", 'session_id': '1dfbaaa6-0281-4eaa-a4c4-7805ac23ff8c'} {}
+2024-10-20 21:02:17,377 - DEBUG - [#E9F0]  C: PULL {'n': 1000}
+2024-10-20 21:02:17,378 - DEBUG - [#E9F0]  S: SUCCESS {}
+2024-10-20 21:02:17,378 - DEBUG - [#E9F0]  _: <CONNECTION> server state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:02:17,380 - DEBUG - [#E9F0]  S: SUCCESS {'t_first': 1, 'fields': [], 'qid': 0}
+2024-10-20 21:02:17,380 - DEBUG - [#E9F0]  S: SUCCESS {'stats': {'contains-updates': True, 'labels-added': 1, 'relationships-created': 2, 'nodes-created': 1, 'relationships-deleted': 1, 'properties-set': 2}, 'type': 'w', 't_last': 0, 'db': 'neo4j'}
+2024-10-20 21:02:17,380 - DEBUG - [#E9F0]  C: COMMIT
+2024-10-20 21:02:17,380 - DEBUG - [#E9F0]  _: <CONNECTION> client state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:02:17,384 - DEBUG - [#E9F0]  S: SUCCESS {'bookmark': 'FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJuZA='}
+2024-10-20 21:02:17,384 - DEBUG - [#E9F0]  _: <CONNECTION> server state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:02:17,384 - DEBUG - [#E9F0]  _: <POOL> released bolt-33
+2024-10-20 21:02:17,385 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:02:17,388 - DEBUG - Raw result from chat agent: {'ratings': EagerResult(records=[<Record movie_name='Strange Days' rating=2.0>, <Record movie_name='Walk in the Clouds, A' rating=3.0>, <Record movie_name='Birdcage, The' rating=4.0>, <Record movie_name='Rob Roy' rating=4.0>, <Record movie_name='Braveheart' rating=5.0>, <Record movie_name='Rumble in the Bronx (Hont faan kui)' rating=4.0>, <Record movie_name='Cry, the Beloved Country' rating=4.0>, <Record movie_name='Happy Gilmore' rating=3.0>, <Record movie_name='Dangerous Minds' rating=3.0>, <Record movie_name='Babe' rating=4.0>, <Record movie_name='GoldenEye' rating=3.0>, <Record movie_name='Get Shorty' rating=3.0>, <Record movie_name='Toy Story' rating=3.0>, <Record movie_name='Mrs. Doubtfire' rating=3.0>, <Record movie_name='Jurassic Park' rating=4.0>, <Record movie_name='True Lies' rating=4.0>, <Record movie_name='Speed' rating=3.0>, <Record movie_name='Mask, The' rating=3.0>, <Record movie_name='Lion King, The' rating=3.0>, <Record movie_name='Four Weddings and a Funeral' rating=3.0>, <Record movie_name='Forrest Gump' rating=3.0>, <Record movie_name='Flintstones, The' rating=3.0>, <Record movie_name='Adventures of Priscilla, Queen of the Desert, The' rating=3.0>, <Record movie_name='Tommy Boy' rating=3.0>, <Record movie_name='Star Trek: Generations' rating=3.0>, <Record movie_name='Shawshank Redemption, The' rating=5.0>, <Record movie_name='Stargate' rating=2.0>, <Record movie_name='Madness of King George, The' rating=3.0>, <Record movie_name='Star Wars: Episode IV - A New Hope' rating=5.0>, <Record movie_name='Sleepless in Seattle' rating=3.0>, <Record movie_name='Shadowlands' rating=4.0>, <Record movie_name='Nightmare Before Christmas, The' rating=4.0>, <Record movie_name='Blade Runner' rating=4.0>, <Record movie_name='Terminator 2: Judgment Day' rating=3.0>, <Record movie_name='Aladdin' rating=4.0>, <Record movie_name='Batman' rating=3.0>, <Record movie_name='Dances with Wolves' rating=4.0>, <Record movie_name='Beauty and the Beast' rating=3.0>, <Record movie_name='Beavis and Butt-Head Do America' rating=5.0>, <Record movie_name='Raising Arizona' rating=3.0>, <Record movie_name='Last of the Mohicans, The' rating=1.0>, <Record movie_name='Star Trek II: The Wrath of Khan' rating=4.0>, <Record movie_name='Star Trek V: The Final Frontier' rating=2.0>, <Record movie_name='Star Trek IV: The Voyage Home' rating=3.0>, <Record movie_name='Star Trek III: The Search for Spock' rating=3.0>, <Record movie_name='Mirror Has Two Faces, The' rating=3.0>, <Record movie_name='When Harry Met Sally...' rating=3.0>, <Record movie_name='Star Trek VI: The Undiscovered Country' rating=3.0>, <Record movie_name='Star Trek: The Motion Picture' rating=3.0>, <Record movie_name='This Is Spinal Tap' rating=4.0>, <Record movie_name='Indiana Jones and the Last Crusade' rating=3.0>, <Record movie_name='Pink Floyd: The Wall' rating=3.0>, <Record movie_name='Field of Dreams' rating=4.0>, <Record movie_name='Back to the Future' rating=3.0>, <Record movie_name='Highlander' rating=4.0>, <Record movie_name='Young Frankenstein' rating=3.0>, <Record movie_name='Ben-Hur' rating=4.0>, <Record movie_name='Amadeus' rating=5.0>, <Record movie_name='Right Stuff, The' rating=4.0>, <Record movie_name='Terminator, The' rating=4.0>, <Record movie_name='Glory' rating=5.0>, <Record movie_name='Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark)' rating=5.0>, <Record movie_name='Star Wars: Episode VI - Return of the Jedi' rating=5.0>, <Record movie_name='Blues Brothers, The' rating=4.0>, <Record movie_name='Grand Day Out with Wallace and Gromit, A' rating=5.0>, <Record movie_name='Princess Bride, The' rating=3.0>, <Record movie_name='Star Wars: Episode V - The Empire Strikes Back' rating=5.0>, <Record movie_name='Wallace & Gromit: The Wrong Trousers' rating=5.0>, <Record movie_name='Monty Python and the Holy Grail' rating=4.0>, <Record movie_name='Escape from New York' rating=3.0>, <Record movie_name='Return of the Pink Panther, The' rating=3.0>, <Record movie_name='E.T. the Extra-Terrestrial' rating=3.0>, <Record movie_name="Monty Python's Life of Brian" rating=4.0>, <Record movie_name='Fish Called Wanda, A' rating=4.0>, <Record movie_name='Willy Wonka & the Chocolate Factory' rating=3.0>, <Record movie_name='Die Hard' rating=3.0>, <Record movie_name='2001: A Space Odyssey' rating=4.0>, <Record movie_name='Eraser' rating=2.0>, <Record movie_name='Independence Day (a.k.a. ID4)' rating=3.0>, <Record movie_name='Wallace & Gromit: A Close Shave' rating=5.0>, <Record movie_name='Barb Wire' rating=1.0>, <Record movie_name='Craft, The' rating=2.0>, <Record movie_name='Twister' rating=1.0>, <Record movie_name='Truth About Cats & Dogs, The' rating=3.0>, <Record movie_name='Wallace & Gromit: The Best of Aardman Animation' rating=5.0>, <Record movie_name='Heavy Metal' rating=3.0>, <Record movie_name='Mystery Science Theater 3000: The Movie' rating=4.0>, <Record movie_name='Snow White and the Seven Dwarfs' rating=4.0>], summary=<neo4j._work.summary.ResultSummary object at 0x0000011CDC3066F0>, keys=['movie_name', 'rating']), 'input': ' What is the lowest rated movie that user_id 7 has rated', 'chat_history': [], 'output': "I don't know the answer."}
+2024-10-20 21:15:52,760 - DEBUG - [#0000]  _: <POOL> created, direct address IPv4Address(('localhost', 7687))
+2024-10-20 21:15:52,760 - DEBUG - [#0000]  _: <POOL> acquire direct connection, access_mode='WRITE', database='neo4j'
+2024-10-20 21:15:52,760 - DEBUG - [#0000]  _: <POOL> trying to hand out new connection
+2024-10-20 21:15:52,761 - DEBUG - [#0000]  _: <RESOLVE> in: localhost:7687
+2024-10-20 21:15:52,761 - DEBUG - [#0000]  _: <RESOLVE> dns resolver out: [::1]:7687
+2024-10-20 21:15:52,761 - DEBUG - [#0000]  C: <OPEN> [::1]:7687
+2024-10-20 21:15:54,790 - DEBUG - [#0000]  S: <ERROR> ConnectionRefusedError 10061 'No connection could be made because the target machine actively refused it' None 10061 None
+2024-10-20 21:15:54,791 - DEBUG - [#0000]  C: <CLOSE> [::1]:7687
+2024-10-20 21:15:54,791 - DEBUG - [#0000]  S: <CONNECTION FAILED> ServiceUnavailable: Failed to establish connection to ResolvedIPv6Address(('::1', 7687, 0, 0)) (reason [WinError 10061] No connection could be made because the target machine actively refused it)
+2024-10-20 21:15:54,791 - DEBUG - [#0000]  _: <RESOLVE> dns resolver out: 127.0.0.1:7687
+2024-10-20 21:15:54,792 - DEBUG - [#0000]  C: <OPEN> 127.0.0.1:7687
+2024-10-20 21:15:54,808 - DEBUG - [#EB32]  C: <MAGIC> 0x6060B017
+2024-10-20 21:15:54,808 - DEBUG - [#EB32]  C: <HANDSHAKE> 0x00040405 0x00020404 0x00000104 0x00000003
+2024-10-20 21:15:54,809 - DEBUG - [#EB32]  S: <HANDSHAKE> 0x00000405
+2024-10-20 21:15:54,809 - DEBUG - [#EB32]  C: HELLO {'user_agent': 'neo4j-python/5.21.0 Python/3.12.2-final-0 (win32)', 'bolt_agent': {'product': 'neo4j-python/5.21.0', 'platform': 'Windows 11; AMD64', 'language': 'Python/3.12.2-final-0', 'language_details': 'CPython; 3.12.2-final-0 (tags/v3.12.2:6abddd9, Feb  6 2024 21:26:36) [MSC v.1937 64 bit (AMD64)]'}}
+2024-10-20 21:15:54,809 - DEBUG - [#EB32]  _: <CONNECTION> client state: CONNECTED > AUTHENTICATION
+2024-10-20 21:15:54,809 - DEBUG - [#EB32]  C: LOGON {'scheme': 'basic', 'principal': 'neo4j', 'credentials': '*******'}
+2024-10-20 21:15:54,809 - DEBUG - [#EB32]  _: <CONNECTION> client state: AUTHENTICATION > READY
+2024-10-20 21:15:54,810 - DEBUG - [#EB32]  S: SUCCESS {'server': 'Neo4j/5.22.0', 'connection_id': 'bolt-35', 'hints': {'connection.recv_timeout_seconds': 120}}
+2024-10-20 21:15:54,810 - DEBUG - [#EB32]  _: <CONNECTION> server state: CONNECTED > AUTHENTICATION
+2024-10-20 21:15:54,812 - DEBUG - [#EB32]  S: SUCCESS {}
+2024-10-20 21:15:54,812 - DEBUG - [#EB32]  _: <CONNECTION> server state: AUTHENTICATION > READY
+2024-10-20 21:15:54,812 - DEBUG - [#EB32]  C: BEGIN {'db': 'neo4j'}
+2024-10-20 21:15:54,812 - DEBUG - [#EB32]  _: <CONNECTION> client state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:15:54,812 - DEBUG - [#EB32]  C: RUN '\n    MATCH (u:User {userId: $user_id})-[r:RATED]->(m:Movie)\n    WHERE r.rating IS NOT NULL\n    RETURN m.title AS movie_name, r.rating AS rating\n' {'user_id': '7'} {}
+2024-10-20 21:15:54,813 - DEBUG - [#EB32]  C: PULL {'n': 1000}
+2024-10-20 21:15:54,813 - DEBUG - [#EB32]  S: SUCCESS {}
+2024-10-20 21:15:54,813 - DEBUG - [#EB32]  _: <CONNECTION> server state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:15:54,814 - DEBUG - [#EB32]  S: SUCCESS {'t_first': 1, 'fields': ['movie_name', 'rating'], 'qid': 0}
+2024-10-20 21:15:54,815 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,816 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,816 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,816 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,816 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,816 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,816 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,816 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,816 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,816 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,816 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,816 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,816 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,816 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,816 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,817 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,818 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,818 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,818 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,818 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,818 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,818 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,818 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,818 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,818 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,818 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,818 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,818 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,819 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,819 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,819 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,819 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,819 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,819 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,819 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,819 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,820 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,820 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,820 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,820 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,820 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,820 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,820 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,820 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,820 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,820 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,820 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,820 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,821 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,821 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,821 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,821 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,821 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,821 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,821 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,821 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,821 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,821 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,821 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,821 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,821 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,821 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,822 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,822 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,822 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,822 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,822 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,822 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,822 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,822 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,822 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,822 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,822 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,822 - DEBUG - [#EB32]  S: RECORD * 1
+2024-10-20 21:15:54,822 - DEBUG - [#EB32]  S: SUCCESS {'type': 'r', 't_last': 1, 'db': 'neo4j'}
+2024-10-20 21:15:54,823 - DEBUG - [#EB32]  C: COMMIT
+2024-10-20 21:15:54,823 - DEBUG - [#EB32]  _: <CONNECTION> client state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:15:54,823 - DEBUG - [#EB32]  S: SUCCESS {'bookmark': 'FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJuZA='}
+2024-10-20 21:15:54,823 - DEBUG - [#EB32]  _: <CONNECTION> server state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:15:54,823 - DEBUG - [#EB32]  _: <POOL> released bolt-35
+2024-10-20 21:15:54,823 - DEBUG - [#0000]  _: <POOL> close
+2024-10-20 21:15:54,824 - DEBUG - [#EB32]  C: GOODBYE
+2024-10-20 21:15:54,824 - DEBUG - [#EB32]  C: <CLOSE>
+2024-10-20 21:15:54,825 - DEBUG - Raw ratings result: EagerResult(records=[<Record movie_name='Strange Days' rating=2.0>, <Record movie_name='Walk in the Clouds, A' rating=3.0>, <Record movie_name='Birdcage, The' rating=4.0>, <Record movie_name='Rob Roy' rating=4.0>, <Record movie_name='Braveheart' rating=5.0>, <Record movie_name='Rumble in the Bronx (Hont faan kui)' rating=4.0>, <Record movie_name='Cry, the Beloved Country' rating=4.0>, <Record movie_name='Happy Gilmore' rating=3.0>, <Record movie_name='Dangerous Minds' rating=3.0>, <Record movie_name='Babe' rating=4.0>, <Record movie_name='GoldenEye' rating=3.0>, <Record movie_name='Get Shorty' rating=3.0>, <Record movie_name='Toy Story' rating=3.0>, <Record movie_name='Mrs. Doubtfire' rating=3.0>, <Record movie_name='Jurassic Park' rating=4.0>, <Record movie_name='True Lies' rating=4.0>, <Record movie_name='Speed' rating=3.0>, <Record movie_name='Mask, The' rating=3.0>, <Record movie_name='Lion King, The' rating=3.0>, <Record movie_name='Four Weddings and a Funeral' rating=3.0>, <Record movie_name='Forrest Gump' rating=3.0>, <Record movie_name='Flintstones, The' rating=3.0>, <Record movie_name='Adventures of Priscilla, Queen of the Desert, The' rating=3.0>, <Record movie_name='Tommy Boy' rating=3.0>, <Record movie_name='Star Trek: Generations' rating=3.0>, <Record movie_name='Shawshank Redemption, The' rating=5.0>, <Record movie_name='Stargate' rating=2.0>, <Record movie_name='Madness of King George, The' rating=3.0>, <Record movie_name='Star Wars: Episode IV - A New Hope' rating=5.0>, <Record movie_name='Sleepless in Seattle' rating=3.0>, <Record movie_name='Shadowlands' rating=4.0>, <Record movie_name='Nightmare Before Christmas, The' rating=4.0>, <Record movie_name='Blade Runner' rating=4.0>, <Record movie_name='Terminator 2: Judgment Day' rating=3.0>, <Record movie_name='Aladdin' rating=4.0>, <Record movie_name='Batman' rating=3.0>, <Record movie_name='Dances with Wolves' rating=4.0>, <Record movie_name='Beauty and the Beast' rating=3.0>, <Record movie_name='Beavis and Butt-Head Do America' rating=5.0>, <Record movie_name='Raising Arizona' rating=3.0>, <Record movie_name='Last of the Mohicans, The' rating=1.0>, <Record movie_name='Star Trek II: The Wrath of Khan' rating=4.0>, <Record movie_name='Star Trek V: The Final Frontier' rating=2.0>, <Record movie_name='Star Trek IV: The Voyage Home' rating=3.0>, <Record movie_name='Star Trek III: The Search for Spock' rating=3.0>, <Record movie_name='Mirror Has Two Faces, The' rating=3.0>, <Record movie_name='When Harry Met Sally...' rating=3.0>, <Record movie_name='Star Trek VI: The Undiscovered Country' rating=3.0>, <Record movie_name='Star Trek: The Motion Picture' rating=3.0>, <Record movie_name='This Is Spinal Tap' rating=4.0>, <Record movie_name='Indiana Jones and the Last Crusade' rating=3.0>, <Record movie_name='Pink Floyd: The Wall' rating=3.0>, <Record movie_name='Field of Dreams' rating=4.0>, <Record movie_name='Back to the Future' rating=3.0>, <Record movie_name='Highlander' rating=4.0>, <Record movie_name='Young Frankenstein' rating=3.0>, <Record movie_name='Ben-Hur' rating=4.0>, <Record movie_name='Amadeus' rating=5.0>, <Record movie_name='Right Stuff, The' rating=4.0>, <Record movie_name='Terminator, The' rating=4.0>, <Record movie_name='Glory' rating=5.0>, <Record movie_name='Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark)' rating=5.0>, <Record movie_name='Star Wars: Episode VI - Return of the Jedi' rating=5.0>, <Record movie_name='Blues Brothers, The' rating=4.0>, <Record movie_name='Grand Day Out with Wallace and Gromit, A' rating=5.0>, <Record movie_name='Princess Bride, The' rating=3.0>, <Record movie_name='Star Wars: Episode V - The Empire Strikes Back' rating=5.0>, <Record movie_name='Wallace & Gromit: The Wrong Trousers' rating=5.0>, <Record movie_name='Monty Python and the Holy Grail' rating=4.0>, <Record movie_name='Escape from New York' rating=3.0>, <Record movie_name='Return of the Pink Panther, The' rating=3.0>, <Record movie_name='E.T. the Extra-Terrestrial' rating=3.0>, <Record movie_name="Monty Python's Life of Brian" rating=4.0>, <Record movie_name='Fish Called Wanda, A' rating=4.0>, <Record movie_name='Willy Wonka & the Chocolate Factory' rating=3.0>, <Record movie_name='Die Hard' rating=3.0>, <Record movie_name='2001: A Space Odyssey' rating=4.0>, <Record movie_name='Eraser' rating=2.0>, <Record movie_name='Independence Day (a.k.a. ID4)' rating=3.0>, <Record movie_name='Wallace & Gromit: A Close Shave' rating=5.0>, <Record movie_name='Barb Wire' rating=1.0>, <Record movie_name='Craft, The' rating=2.0>, <Record movie_name='Twister' rating=1.0>, <Record movie_name='Truth About Cats & Dogs, The' rating=3.0>, <Record movie_name='Wallace & Gromit: The Best of Aardman Animation' rating=5.0>, <Record movie_name='Heavy Metal' rating=3.0>, <Record movie_name='Mystery Science Theater 3000: The Movie' rating=4.0>, <Record movie_name='Snow White and the Seven Dwarfs' rating=4.0>], summary=<neo4j._work.summary.ResultSummary object at 0x0000011CDF636BD0>, keys=['movie_name', 'rating'])
+2024-10-20 21:15:54,825 - DEBUG - [#0000]  _: <POOL> acquire direct connection, access_mode='WRITE', database=None
+2024-10-20 21:15:54,825 - DEBUG - [#E9F0]  _: <POOL> picked existing connection bolt-33
+2024-10-20 21:15:54,825 - DEBUG - [#E9F0]  _: <POOL> checked re_auth auth=None updated=False force=False
+2024-10-20 21:15:54,825 - DEBUG - [#E9F0]  _: <POOL> handing out existing connection
+2024-10-20 21:15:54,825 - DEBUG - [#E9F0]  C: BEGIN {'bookmarks': ['FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJuZA=']}
+2024-10-20 21:15:54,825 - DEBUG - [#E9F0]  _: <CONNECTION> client state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:15:54,825 - DEBUG - [#E9F0]  C: RUN 'MERGE (s:`Session` {id:$session_id})' {'session_id': '3430c7a2-4077-4478-83a8-e7d0ee330ce8'} {}
+2024-10-20 21:15:54,826 - DEBUG - [#E9F0]  C: PULL {'n': 1000}
+2024-10-20 21:15:54,826 - DEBUG - [#E9F0]  S: SUCCESS {}
+2024-10-20 21:15:54,827 - DEBUG - [#E9F0]  _: <CONNECTION> server state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:15:54,840 - DEBUG - [#E9F0]  S: SUCCESS {'t_first': 14, 'fields': [], 'qid': 0}
+2024-10-20 21:15:54,841 - DEBUG - [#E9F0]  S: SUCCESS {'stats': {'contains-updates': True, 'labels-added': 1, 'nodes-created': 1, 'properties-set': 1}, 'type': 'w', 't_last': 0, 'db': 'neo4j'}
+2024-10-20 21:15:54,841 - DEBUG - [#E9F0]  C: COMMIT
+2024-10-20 21:15:54,841 - DEBUG - [#E9F0]  _: <CONNECTION> client state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:15:54,843 - DEBUG - [#E9F0]  S: SUCCESS {'bookmark': 'FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJupA='}
+2024-10-20 21:15:54,844 - DEBUG - [#E9F0]  _: <CONNECTION> server state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:15:54,844 - DEBUG - [#E9F0]  _: <POOL> released bolt-33
+2024-10-20 21:15:54,866 - DEBUG - [#0000]  _: <POOL> acquire direct connection, access_mode='WRITE', database=None
+2024-10-20 21:15:54,866 - DEBUG - [#E9F0]  _: <POOL> picked existing connection bolt-33
+2024-10-20 21:15:54,866 - DEBUG - [#E9F0]  _: <POOL> checked re_auth auth=None updated=False force=False
+2024-10-20 21:15:54,866 - DEBUG - [#E9F0]  _: <POOL> handing out existing connection
+2024-10-20 21:15:54,867 - DEBUG - [#E9F0]  C: BEGIN {'bookmarks': ['FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJupA=']}
+2024-10-20 21:15:54,867 - DEBUG - [#E9F0]  _: <CONNECTION> client state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:15:54,867 - DEBUG - [#E9F0]  C: RUN 'MATCH (s:`Session`)-[:LAST_MESSAGE]->(last_message) WHERE s.id = $session_id MATCH p=(last_message)<-[:NEXT*0..6]-() WITH p, length(p) AS length ORDER BY length DESC LIMIT 1 UNWIND reverse(nodes(p)) AS node RETURN {data:{content: node.content}, type:node.type} AS result' {'session_id': '3430c7a2-4077-4478-83a8-e7d0ee330ce8'} {}
+2024-10-20 21:15:54,867 - DEBUG - [#E9F0]  C: PULL {'n': 1000}
+2024-10-20 21:15:54,868 - DEBUG - [#E9F0]  S: SUCCESS {}
+2024-10-20 21:15:54,868 - DEBUG - [#E9F0]  _: <CONNECTION> server state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:15:54,895 - DEBUG - [#E9F0]  S: SUCCESS {'t_first': 26, 'fields': ['result'], 'qid': 0}
+2024-10-20 21:15:54,896 - DEBUG - [#E9F0]  S: SUCCESS {'type': 'r', 't_last': 1, 'db': 'neo4j'}
+2024-10-20 21:15:54,896 - DEBUG - [#E9F0]  C: COMMIT
+2024-10-20 21:15:54,896 - DEBUG - [#E9F0]  _: <CONNECTION> client state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:15:54,896 - DEBUG - [#E9F0]  S: SUCCESS {'bookmark': 'FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJupA='}
+2024-10-20 21:15:54,896 - DEBUG - [#E9F0]  _: <CONNECTION> server state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:15:54,897 - DEBUG - [#E9F0]  _: <POOL> released bolt-33
+2024-10-20 21:15:54,902 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:54,904 - WARNING - Error in RootListenersTracer.on_chain_end callback: ValueError()
+2024-10-20 21:15:54,904 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:54,905 - WARNING - Error in callback coroutine: ValueError()
+2024-10-20 21:15:54,908 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:54,915 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:54,922 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:54,927 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:54,929 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:54,931 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:54,933 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:54,934 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:54,936 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:54,939 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:54,942 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:54,945 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': '\n    You are a movie expert providing information about movies.\n    Be as helpful as possible and return as much information as possible.\n    Do not answer any questions that do not relate to movies, actors, plot, or directors.\n\n    Do not answer any questions using your pre-trained knowledge, only use the information provided in the context and relevant information from the user_id.                                  \n\n    If the user says "I", assume they mean the specified parameter "userId" \n    TOOLS:\n    ------\n\n    You have access to the following tools:\n\n    General Chat(input: \'Input\', config: \'Optional[RunnableConfig]\' = None, **kwargs: \'Any\') -> \'Output\' - For general movie chat not covered by other tools\nMovie Plot Search(input) - For when you need to find information about movies based on a plot\nMovie information(query: str) -> dict - Provide information about movies questions using Cypher\n\n    To use a tool, please use the following format:\n\n    ```\n    Thought: Do I need to use a tool? Yes\n    Action: the action to take, should be one of [General Chat, Movie Plot Search, Movie information]\n    Action Input: the input to the action\n    Observation: the result of the action\n    ```\n\n    When you have a response to say to the Human, or if you do not need to use a tool, you MUST use the format:\n\n    ```\n    Thought: Do I need to use a tool? No\n    Final Answer: [your response here]\n    ```\n\n    Begin!\n\n    Previous conversation history:\n    []\n\n    New input:  What is the highest rated movie that user_id 7 has rated in that has actor Tom Hanks?\n    \n    ', 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'n': 1, 'stop': ['\nObservation'], 'stream': True, 'temperature': 0.7}}
+2024-10-20 21:15:54,945 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-20 21:15:54,946 - DEBUG - close.started
+2024-10-20 21:15:54,946 - DEBUG - close.complete
+2024-10-20 21:15:54,946 - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2024-10-20 21:15:54,997 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000011CDF626ED0>
+2024-10-20 21:15:54,997 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000011CDCFA3750> server_hostname='api.openai.com' timeout=None
+2024-10-20 21:15:55,135 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000011CDF5C1340>
+2024-10-20 21:15:55,136 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-20 21:15:55,136 - DEBUG - send_request_headers.complete
+2024-10-20 21:15:55,136 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-20 21:15:55,137 - DEBUG - send_request_body.complete
+2024-10-20 21:15:55,137 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-20 21:15:55,555 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:15:55 GMT'), (b'Content-Type', b'text/event-stream; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-myxufenx5ig5dud2h29zdq9d'), (b'openai-processing-ms', b'284'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199585'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'124ms'), (b'x-request-id', b'req_40eff0083cb5f8694f29544cdbe6a8dc'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e6de24fa7d7ab-LAX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-20 21:15:55,555 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-20 21:15:55,555 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:15:55 GMT', 'content-type': 'text/event-stream; charset=utf-8', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-myxufenx5ig5dud2h29zdq9d', 'openai-processing-ms': '284', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9999', 'x-ratelimit-remaining-tokens': '199585', 'x-ratelimit-reset-requests': '8.64s', 'x-ratelimit-reset-tokens': '124ms', 'x-request-id': 'req_40eff0083cb5f8694f29544cdbe6a8dc', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e6de24fa7d7ab-LAX', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-20 21:15:55,555 - DEBUG - request_id: req_40eff0083cb5f8694f29544cdbe6a8dc
+2024-10-20 21:15:55,556 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-20 21:15:55,557 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,558 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,577 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,579 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,580 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,776 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,778 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,780 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,782 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,783 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,785 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,788 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,791 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,792 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,807 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,808 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,810 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,812 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,813 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,817 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,818 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,820 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,823 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,825 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,826 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,828 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,830 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,832 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,834 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,835 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,839 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,841 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,842 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,844 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,845 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,847 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,849 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,851 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,852 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,855 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,857 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,859 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,860 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,862 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,864 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,865 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,867 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,937 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,940 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,942 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,944 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,946 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,947 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,950 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,951 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,953 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,956 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,958 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,959 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,961 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,962 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,964 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,966 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,968 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,969 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,972 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,974 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,976 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,977 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,997 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:55,998 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,000 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,001 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,003 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,007 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,008 - DEBUG - receive_response_body.complete
+2024-10-20 21:15:56,008 - DEBUG - response_closed.started
+2024-10-20 21:15:56,008 - DEBUG - response_closed.complete
+2024-10-20 21:15:56,009 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,011 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,012 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,014 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,016 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,016 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,020 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,025 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,026 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,028 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:56,031 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': '\nYou are an expert Neo4j Developer translating user questions into Cypher to answer questions about movies and provide recommendations.\nConvert the user\'s question based on the schema.\n\nUse only the provided relationship types and properties in the schema.\nDo not use any other relationship types or properties that are not provided.\nWhen using a parameter userId, make sure that the id is in quotes/ is a string value                                        \n\nDo not return entire nodes or embedding properties.\n\nFine Tuning:\n\nFor movie titles that begin with "The", move "the" to the end. For example "The 39 Steps" becomes "39 Steps, The" or "the matrix" becomes "Matrix, The".\n\nExample Cypher Statements:\nRemember RETURN can only be used at the end of a query!\n\n1. To find who acted in a movie:\n```\nMATCH (p:Person)-[r:ACTED_IN]->(m:Movie {title: "Movie Title"})\nRETURN p.name, r.role\n```\n\n2. To find who directed a movie:\n```\nMATCH (p:Person)-[r:DIRECTED]->(m:Movie {title: "Movie Title"})\nRETURN p.name\n```\n3. To find the actors and directors of a movie:\n```\nMATCH (m:Movie {title: "Movie Title"})\nOPTIONAL MATCH (m)<-[:DIRECTED]-(d:Person)\nOPTIONAL MATCH (m)<-[:ACTED_IN]-(a:Person)\nRETURN m.title AS movie,\n       collect(DISTINCT d.name) AS directors,\n       collect(DISTINCT a.name) AS actors\n```\n\n4. How to find how many degrees of separation there are between two people:\n```\nMATCH path = shortestPath(\n  (p1:Person {name: "Actor 1"})-[:ACTED_IN|DIRECTED*]-(p2:Person {name: "Actor 2"})\n)\nWITH path, p1, p2, relationships(path) AS rels\nRETURN\n  p1 { .name, .born, link:\'https://www.themoviedb.org/person/\'+ p1.tmdbId } AS start,\n  p2 { .name, .born, link:\'https://www.themoviedb.org/person/\'+ p2.tmdbId } AS end,\n  reduce(output = \'\', i in range(0, length(path)-1) |\n    output + CASE\n      WHEN i = 0 THEN\n       startNode(rels[i]).name + CASE WHEN type(rels[i]) = \'ACTED_IN\' THEN \' played \'+ rels[i].role +\' in \'ELSE \' directed \' END + endNode(rels[i]).title\n       ELSE\n         \' with \'+ startNode(rels[i]).name + \', who \'+ CASE WHEN type(rels[i]) = \'ACTED_IN\' THEN \'played \'+ rels[i].role +\' in \'\n    ELSE \'directed \'\n      END + endNode(rels[i]).title\n      END\n  ) AS pathBetweenPeople\n\n```\n5. To find a movie given a Genre and highly rated:\n```\nMATCH (m:Movie)-[r:IN_GENRE]->(:Genre {name: "Genre"})\nWHERE m.imdbRating > 7.5\nRETURN m.title\n```\n\nSchema:\nNode properties are the following:\nMovie {url: STRING, runtime: INTEGER, revenue: INTEGER, budget: INTEGER, plotEmbedding: LIST, imdbRating: FLOAT, released: STRING, countries: LIST, languages: LIST, plot: STRING, imdbVotes: INTEGER, imdbId: STRING, year: INTEGER, poster: STRING, movieId: STRING, tmdbId: STRING, title: STRING},Genre {name: STRING},User {userId: STRING, name: STRING},Actor {url: STRING, name: STRING, tmdbId: STRING, bornIn: STRING, bio: STRING, died: DATE, born: DATE, imdbId: STRING, poster: STRING},Director {url: STRING, bornIn: STRING, bio: STRING, died: DATE, born: DATE, imdbId: STRING, name: STRING, poster: STRING, tmdbId: STRING},Person {url: STRING, bornIn: STRING, bio: STRING, died: DATE, born: DATE, imdbId: STRING, name: STRING, poster: STRING, tmdbId: STRING},Session {id: STRING},Message {content: STRING, type: STRING}\nRelationship properties are the following:\nRATED {rating: FLOAT, timestamp: INTEGER},ACTED_IN {role: STRING},DIRECTED {role: STRING}\nThe relationships are the following:\n(:Movie)-[:IN_GENRE]->(:Genre),(:User)-[:RATED]->(:Movie),(:Actor)-[:ACTED_IN]->(:Movie),(:Actor)-[:DIRECTED]->(:Movie),(:Director)-[:DIRECTED]->(:Movie),(:Director)-[:ACTED_IN]->(:Movie),(:Person)-[:ACTED_IN]->(:Movie),(:Person)-[:DIRECTED]->(:Movie),(:Session)-[:LAST_MESSAGE]->(:Message),(:Message)-[:NEXT]->(:Message)\n\nQuestion:\nMATCH (u:User {userId:7})-[:RATED]->(m:Movie)<-[:ACTED_IN]-(a:Actor {name:\'Tom Hanks\'}) RETURN m.title, m.rating ORDER BY m.rating DESC LIMIT 1\n', 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'n': 1, 'stream': False, 'temperature': 0.7}}
+2024-10-20 21:15:56,031 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-20 21:15:56,032 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-20 21:15:56,032 - DEBUG - send_request_headers.complete
+2024-10-20 21:15:56,032 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-20 21:15:56,032 - DEBUG - send_request_body.complete
+2024-10-20 21:15:56,032 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-20 21:15:57,425 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:15:57 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-myxufenx5ig5dud2h29zdq9d'), (b'openai-processing-ms', b'1271'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9998'), (b'x-ratelimit-remaining-tokens', b'199013'), (b'x-ratelimit-reset-requests', b'16.404s'), (b'x-ratelimit-reset-tokens', b'295ms'), (b'x-request-id', b'req_d6435e4bd39a59ffb63a744d12f5115f'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e6de7ecf4d7ab-LAX'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-20 21:15:57,426 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-20 21:15:57,426 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-20 21:15:57,426 - DEBUG - receive_response_body.complete
+2024-10-20 21:15:57,426 - DEBUG - response_closed.started
+2024-10-20 21:15:57,426 - DEBUG - response_closed.complete
+2024-10-20 21:15:57,426 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:15:57 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-myxufenx5ig5dud2h29zdq9d', 'openai-processing-ms': '1271', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9998', 'x-ratelimit-remaining-tokens': '199013', 'x-ratelimit-reset-requests': '16.404s', 'x-ratelimit-reset-tokens': '295ms', 'x-request-id': 'req_d6435e4bd39a59ffb63a744d12f5115f', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e6de7ecf4d7ab-LAX', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-20 21:15:57,426 - DEBUG - request_id: req_d6435e4bd39a59ffb63a744d12f5115f
+2024-10-20 21:15:57,428 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:57,429 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:57,431 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:57,433 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:57,434 - DEBUG - [#0000]  _: <POOL> acquire direct connection, access_mode='WRITE', database='neo4j'
+2024-10-20 21:15:57,434 - DEBUG - [#E9F0]  _: <POOL> picked existing connection bolt-33
+2024-10-20 21:15:57,434 - DEBUG - [#E9F0]  _: <POOL> checked re_auth auth=None updated=False force=False
+2024-10-20 21:15:57,434 - DEBUG - [#E9F0]  _: <POOL> handing out existing connection
+2024-10-20 21:15:57,435 - DEBUG - [#E9F0]  C: RUN "MATCH (u:User {userId:'7'})-[:RATED]->(m:Movie)<-[:ACTED_IN]-(a:Actor {name:'Tom Hanks'}) \nRETURN m.title AS movieTitle, m.imdbRating AS movieRating \nORDER BY m.imdbRating DESC \nLIMIT 1" {} {'db': 'neo4j'}
+2024-10-20 21:15:57,435 - DEBUG - [#E9F0]  _: <CONNECTION> client state: READY > STREAMING
+2024-10-20 21:15:57,435 - DEBUG - [#E9F0]  C: PULL {'n': 1000}
+2024-10-20 21:15:57,529 - DEBUG - [#E9F0]  S: SUCCESS {'t_first': 93, 'fields': ['movieTitle', 'movieRating']}
+2024-10-20 21:15:57,529 - DEBUG - [#E9F0]  _: <CONNECTION> server state: READY > STREAMING
+2024-10-20 21:15:57,531 - DEBUG - [#E9F0]  S: RECORD * 1
+2024-10-20 21:15:57,532 - DEBUG - [#E9F0]  S: SUCCESS {'bookmark': 'FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJupA=', 'type': 'r', 't_last': 2, 'db': 'neo4j'}
+2024-10-20 21:15:57,532 - DEBUG - [#E9F0]  _: <CONNECTION> server state: STREAMING > READY
+2024-10-20 21:15:57,532 - DEBUG - [#E9F0]  _: <POOL> released bolt-33
+2024-10-20 21:15:57,533 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:57,535 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:57,537 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:57,541 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:57,544 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:57,547 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': "You are an assistant that helps to form nice and human understandable answers.\nThe information part contains the provided information that you must use to construct an answer.\nThe provided information is authoritative, you must never doubt it or try to use your internal knowledge to correct it.\nMake the answer sound as a response to the question. Do not mention that you based the result on the given information.\nHere is an example:\n\nQuestion: Which managers own Neo4j stocks?\nContext:[manager:CTL LLC, manager:JANE STREET GROUP LLC]\nHelpful Answer: CTL LLC, JANE STREET GROUP LLC owns Neo4j stocks.\n\nFollow this example when generating answers.\nIf the provided information is empty, say that you don't know the answer.\nInformation:\n[{'movieTitle': 'Forrest Gump', 'movieRating': 8.8}]\n\nQuestion: MATCH (u:User {userId:7})-[:RATED]->(m:Movie)<-[:ACTED_IN]-(a:Actor {name:'Tom Hanks'}) RETURN m.title, m.rating ORDER BY m.rating DESC LIMIT 1\nHelpful Answer:", 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'n': 1, 'stream': False, 'temperature': 0.7}}
+2024-10-20 21:15:57,547 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-20 21:15:57,548 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-20 21:15:57,548 - DEBUG - send_request_headers.complete
+2024-10-20 21:15:57,548 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-20 21:15:57,548 - DEBUG - send_request_body.complete
+2024-10-20 21:15:57,548 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-20 21:15:57,974 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:15:58 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-myxufenx5ig5dud2h29zdq9d'), (b'openai-processing-ms', b'281'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9997'), (b'x-ratelimit-remaining-tokens', b'199743'), (b'x-ratelimit-reset-requests', b'23.506s'), (b'x-ratelimit-reset-tokens', b'77ms'), (b'x-request-id', b'req_6d3ebfb530a86c6ae7dd12c73c9bb4f6'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e6df168f8d7ab-LAX'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-20 21:15:57,974 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-20 21:15:57,974 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-20 21:15:57,974 - DEBUG - receive_response_body.complete
+2024-10-20 21:15:57,974 - DEBUG - response_closed.started
+2024-10-20 21:15:57,974 - DEBUG - response_closed.complete
+2024-10-20 21:15:57,974 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:15:58 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-myxufenx5ig5dud2h29zdq9d', 'openai-processing-ms': '281', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9997', 'x-ratelimit-remaining-tokens': '199743', 'x-ratelimit-reset-requests': '23.506s', 'x-ratelimit-reset-tokens': '77ms', 'x-request-id': 'req_6d3ebfb530a86c6ae7dd12c73c9bb4f6', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e6df168f8d7ab-LAX', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-20 21:15:57,975 - DEBUG - request_id: req_6d3ebfb530a86c6ae7dd12c73c9bb4f6
+2024-10-20 21:15:57,976 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:57,978 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:57,980 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:57,982 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:57,991 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:57,998 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,002 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,004 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,005 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,007 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,009 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,011 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,013 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,015 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,018 - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': '\n    You are a movie expert providing information about movies.\n    Be as helpful as possible and return as much information as possible.\n    Do not answer any questions that do not relate to movies, actors, plot, or directors.\n\n    Do not answer any questions using your pre-trained knowledge, only use the information provided in the context and relevant information from the user_id.                                  \n\n    If the user says "I", assume they mean the specified parameter "userId" \n    TOOLS:\n    ------\n\n    You have access to the following tools:\n\n    General Chat(input: \'Input\', config: \'Optional[RunnableConfig]\' = None, **kwargs: \'Any\') -> \'Output\' - For general movie chat not covered by other tools\nMovie Plot Search(input) - For when you need to find information about movies based on a plot\nMovie information(query: str) -> dict - Provide information about movies questions using Cypher\n\n    To use a tool, please use the following format:\n\n    ```\n    Thought: Do I need to use a tool? Yes\n    Action: the action to take, should be one of [General Chat, Movie Plot Search, Movie information]\n    Action Input: the input to the action\n    Observation: the result of the action\n    ```\n\n    When you have a response to say to the Human, or if you do not need to use a tool, you MUST use the format:\n\n    ```\n    Thought: Do I need to use a tool? No\n    Final Answer: [your response here]\n    ```\n\n    Begin!\n\n    Previous conversation history:\n    []\n\n    New input:  What is the highest rated movie that user_id 7 has rated in that has actor Tom Hanks?\n    Thought: Do I need to use a tool? Yes\nAction: Movie information\nAction Input: "MATCH (u:User {userId:7})-[:RATED]->(m:Movie)<-[:ACTED_IN]-(a:Actor {name:\'Tom Hanks\'}) RETURN m.title, m.rating ORDER BY m.rating DESC LIMIT 1"\nObservation: {\'query\': "MATCH (u:User {userId:7})-[:RATED]->(m:Movie)<-[:ACTED_IN]-(a:Actor {name:\'Tom Hanks\'}) RETURN m.title, m.rating ORDER BY m.rating DESC LIMIT 1", \'result\': \'Forrest Gump, 8.8\'}\nThought: \n    ', 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'n': 1, 'stop': ['\nObservation'], 'stream': True, 'temperature': 0.7}}
+2024-10-20 21:15:58,018 - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2024-10-20 21:15:58,019 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-20 21:15:58,019 - DEBUG - send_request_headers.complete
+2024-10-20 21:15:58,019 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-20 21:15:58,019 - DEBUG - send_request_body.complete
+2024-10-20 21:15:58,019 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-20 21:15:58,327 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:15:58 GMT'), (b'Content-Type', b'text/event-stream; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-myxufenx5ig5dud2h29zdq9d'), (b'openai-processing-ms', b'184'), (b'openai-version', b'2020-10-01'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9996'), (b'x-ratelimit-remaining-tokens', b'199477'), (b'x-ratelimit-reset-requests', b'31.685s'), (b'x-ratelimit-reset-tokens', b'156ms'), (b'x-request-id', b'req_8cd86e0c67c8c81ab104992520204578'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e6df44ce4d7ab-LAX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-20 21:15:58,327 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-10-20 21:15:58,327 - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:15:58 GMT', 'content-type': 'text/event-stream; charset=utf-8', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-myxufenx5ig5dud2h29zdq9d', 'openai-processing-ms': '184', 'openai-version': '2020-10-01', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9996', 'x-ratelimit-remaining-tokens': '199477', 'x-ratelimit-reset-requests': '31.685s', 'x-ratelimit-reset-tokens': '156ms', 'x-request-id': 'req_8cd86e0c67c8c81ab104992520204578', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e6df44ce4d7ab-LAX', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-20 21:15:58,327 - DEBUG - request_id: req_8cd86e0c67c8c81ab104992520204578
+2024-10-20 21:15:58,327 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-20 21:15:58,350 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,352 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,384 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,387 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,388 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,418 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,420 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,421 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,466 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,468 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,470 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,472 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,498 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,500 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,501 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,503 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,529 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,531 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,533 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,621 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,625 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,627 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,652 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,654 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,656 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,658 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,660 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,662 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,663 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,665 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,668 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,686 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,688 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,691 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,693 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,695 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,696 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,698 - DEBUG - receive_response_body.complete
+2024-10-20 21:15:58,698 - DEBUG - response_closed.started
+2024-10-20 21:15:58,698 - DEBUG - response_closed.complete
+2024-10-20 21:15:58,698 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,701 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,702 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,704 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,706 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,708 - DEBUG - [#0000]  _: <POOL> acquire direct connection, access_mode='WRITE', database=None
+2024-10-20 21:15:58,708 - DEBUG - [#E9F0]  _: <POOL> picked existing connection bolt-33
+2024-10-20 21:15:58,708 - DEBUG - [#E9F0]  _: <POOL> checked re_auth auth=None updated=False force=False
+2024-10-20 21:15:58,708 - DEBUG - [#E9F0]  _: <POOL> handing out existing connection
+2024-10-20 21:15:58,708 - DEBUG - [#E9F0]  C: BEGIN {'bookmarks': ['FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJupA=']}
+2024-10-20 21:15:58,708 - DEBUG - [#E9F0]  _: <CONNECTION> client state: STREAMING > TX_READY_OR_TX_STREAMING
+2024-10-20 21:15:58,708 - DEBUG - [#E9F0]  C: RUN 'MATCH (s:`Session`) WHERE s.id = $session_id OPTIONAL MATCH (s)-[lm:LAST_MESSAGE]->(last_message) CREATE (s)-[:LAST_MESSAGE]->(new:Message) SET new += {type:$type, content:$content} WITH new, lm, last_message WHERE last_message IS NOT NULL CREATE (last_message)-[:NEXT]->(new) DELETE lm' {'type': 'human', 'content': ' What is the highest rated movie that user_id 7 has rated in that has actor Tom Hanks?', 'session_id': '3430c7a2-4077-4478-83a8-e7d0ee330ce8'} {}
+2024-10-20 21:15:58,709 - DEBUG - [#E9F0]  C: PULL {'n': 1000}
+2024-10-20 21:15:58,710 - DEBUG - [#E9F0]  S: SUCCESS {}
+2024-10-20 21:15:58,710 - DEBUG - [#E9F0]  _: <CONNECTION> server state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:15:58,712 - DEBUG - [#E9F0]  S: SUCCESS {'t_first': 1, 'fields': [], 'qid': 0}
+2024-10-20 21:15:58,712 - DEBUG - [#E9F0]  S: SUCCESS {'stats': {'contains-updates': True, 'labels-added': 1, 'relationships-created': 1, 'nodes-created': 1, 'properties-set': 2}, 'type': 'w', 't_last': 0, 'db': 'neo4j'}
+2024-10-20 21:15:58,712 - DEBUG - [#E9F0]  C: COMMIT
+2024-10-20 21:15:58,712 - DEBUG - [#E9F0]  _: <CONNECTION> client state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:15:58,714 - DEBUG - [#E9F0]  S: SUCCESS {'bookmark': 'FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJu5A='}
+2024-10-20 21:15:58,714 - DEBUG - [#E9F0]  _: <CONNECTION> server state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:15:58,715 - DEBUG - [#E9F0]  _: <POOL> released bolt-33
+2024-10-20 21:15:58,715 - DEBUG - [#0000]  _: <POOL> acquire direct connection, access_mode='WRITE', database=None
+2024-10-20 21:15:58,715 - DEBUG - [#E9F0]  _: <POOL> picked existing connection bolt-33
+2024-10-20 21:15:58,715 - DEBUG - [#E9F0]  _: <POOL> checked re_auth auth=None updated=False force=False
+2024-10-20 21:15:58,715 - DEBUG - [#E9F0]  _: <POOL> handing out existing connection
+2024-10-20 21:15:58,715 - DEBUG - [#E9F0]  C: BEGIN {'bookmarks': ['FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJu5A=']}
+2024-10-20 21:15:58,715 - DEBUG - [#E9F0]  _: <CONNECTION> client state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:15:58,715 - DEBUG - [#E9F0]  C: RUN 'MATCH (s:`Session`) WHERE s.id = $session_id OPTIONAL MATCH (s)-[lm:LAST_MESSAGE]->(last_message) CREATE (s)-[:LAST_MESSAGE]->(new:Message) SET new += {type:$type, content:$content} WITH new, lm, last_message WHERE last_message IS NOT NULL CREATE (last_message)-[:NEXT]->(new) DELETE lm' {'type': 'ai', 'content': 'The highest rated movie that user_id 7 has rated with actor Tom Hanks is "Forrest Gump" with a rating of 8.8.', 'session_id': '3430c7a2-4077-4478-83a8-e7d0ee330ce8'} {}
+2024-10-20 21:15:58,715 - DEBUG - [#E9F0]  C: PULL {'n': 1000}
+2024-10-20 21:15:58,716 - DEBUG - [#E9F0]  S: SUCCESS {}
+2024-10-20 21:15:58,716 - DEBUG - [#E9F0]  _: <CONNECTION> server state: READY > TX_READY_OR_TX_STREAMING
+2024-10-20 21:15:58,718 - DEBUG - [#E9F0]  S: SUCCESS {'t_first': 2, 'fields': [], 'qid': 0}
+2024-10-20 21:15:58,718 - DEBUG - [#E9F0]  S: SUCCESS {'stats': {'contains-updates': True, 'labels-added': 1, 'relationships-created': 2, 'nodes-created': 1, 'relationships-deleted': 1, 'properties-set': 2}, 'type': 'w', 't_last': 0, 'db': 'neo4j'}
+2024-10-20 21:15:58,719 - DEBUG - [#E9F0]  C: COMMIT
+2024-10-20 21:15:58,719 - DEBUG - [#E9F0]  _: <CONNECTION> client state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:15:58,722 - DEBUG - [#E9F0]  S: SUCCESS {'bookmark': 'FB:kcwQ01s0w7AyTOq3/DB0Wpn64skJvJA='}
+2024-10-20 21:15:58,722 - DEBUG - [#E9F0]  _: <CONNECTION> server state: TX_READY_OR_TX_STREAMING > READY
+2024-10-20 21:15:58,722 - DEBUG - [#E9F0]  _: <POOL> released bolt-33
+2024-10-20 21:15:58,724 - DEBUG - Using selector: SelectSelector
+2024-10-20 21:15:58,726 - DEBUG - Raw result from chat agent: {'ratings': EagerResult(records=[<Record movie_name='Strange Days' rating=2.0>, <Record movie_name='Walk in the Clouds, A' rating=3.0>, <Record movie_name='Birdcage, The' rating=4.0>, <Record movie_name='Rob Roy' rating=4.0>, <Record movie_name='Braveheart' rating=5.0>, <Record movie_name='Rumble in the Bronx (Hont faan kui)' rating=4.0>, <Record movie_name='Cry, the Beloved Country' rating=4.0>, <Record movie_name='Happy Gilmore' rating=3.0>, <Record movie_name='Dangerous Minds' rating=3.0>, <Record movie_name='Babe' rating=4.0>, <Record movie_name='GoldenEye' rating=3.0>, <Record movie_name='Get Shorty' rating=3.0>, <Record movie_name='Toy Story' rating=3.0>, <Record movie_name='Mrs. Doubtfire' rating=3.0>, <Record movie_name='Jurassic Park' rating=4.0>, <Record movie_name='True Lies' rating=4.0>, <Record movie_name='Speed' rating=3.0>, <Record movie_name='Mask, The' rating=3.0>, <Record movie_name='Lion King, The' rating=3.0>, <Record movie_name='Four Weddings and a Funeral' rating=3.0>, <Record movie_name='Forrest Gump' rating=3.0>, <Record movie_name='Flintstones, The' rating=3.0>, <Record movie_name='Adventures of Priscilla, Queen of the Desert, The' rating=3.0>, <Record movie_name='Tommy Boy' rating=3.0>, <Record movie_name='Star Trek: Generations' rating=3.0>, <Record movie_name='Shawshank Redemption, The' rating=5.0>, <Record movie_name='Stargate' rating=2.0>, <Record movie_name='Madness of King George, The' rating=3.0>, <Record movie_name='Star Wars: Episode IV - A New Hope' rating=5.0>, <Record movie_name='Sleepless in Seattle' rating=3.0>, <Record movie_name='Shadowlands' rating=4.0>, <Record movie_name='Nightmare Before Christmas, The' rating=4.0>, <Record movie_name='Blade Runner' rating=4.0>, <Record movie_name='Terminator 2: Judgment Day' rating=3.0>, <Record movie_name='Aladdin' rating=4.0>, <Record movie_name='Batman' rating=3.0>, <Record movie_name='Dances with Wolves' rating=4.0>, <Record movie_name='Beauty and the Beast' rating=3.0>, <Record movie_name='Beavis and Butt-Head Do America' rating=5.0>, <Record movie_name='Raising Arizona' rating=3.0>, <Record movie_name='Last of the Mohicans, The' rating=1.0>, <Record movie_name='Star Trek II: The Wrath of Khan' rating=4.0>, <Record movie_name='Star Trek V: The Final Frontier' rating=2.0>, <Record movie_name='Star Trek IV: The Voyage Home' rating=3.0>, <Record movie_name='Star Trek III: The Search for Spock' rating=3.0>, <Record movie_name='Mirror Has Two Faces, The' rating=3.0>, <Record movie_name='When Harry Met Sally...' rating=3.0>, <Record movie_name='Star Trek VI: The Undiscovered Country' rating=3.0>, <Record movie_name='Star Trek: The Motion Picture' rating=3.0>, <Record movie_name='This Is Spinal Tap' rating=4.0>, <Record movie_name='Indiana Jones and the Last Crusade' rating=3.0>, <Record movie_name='Pink Floyd: The Wall' rating=3.0>, <Record movie_name='Field of Dreams' rating=4.0>, <Record movie_name='Back to the Future' rating=3.0>, <Record movie_name='Highlander' rating=4.0>, <Record movie_name='Young Frankenstein' rating=3.0>, <Record movie_name='Ben-Hur' rating=4.0>, <Record movie_name='Amadeus' rating=5.0>, <Record movie_name='Right Stuff, The' rating=4.0>, <Record movie_name='Terminator, The' rating=4.0>, <Record movie_name='Glory' rating=5.0>, <Record movie_name='Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark)' rating=5.0>, <Record movie_name='Star Wars: Episode VI - Return of the Jedi' rating=5.0>, <Record movie_name='Blues Brothers, The' rating=4.0>, <Record movie_name='Grand Day Out with Wallace and Gromit, A' rating=5.0>, <Record movie_name='Princess Bride, The' rating=3.0>, <Record movie_name='Star Wars: Episode V - The Empire Strikes Back' rating=5.0>, <Record movie_name='Wallace & Gromit: The Wrong Trousers' rating=5.0>, <Record movie_name='Monty Python and the Holy Grail' rating=4.0>, <Record movie_name='Escape from New York' rating=3.0>, <Record movie_name='Return of the Pink Panther, The' rating=3.0>, <Record movie_name='E.T. the Extra-Terrestrial' rating=3.0>, <Record movie_name="Monty Python's Life of Brian" rating=4.0>, <Record movie_name='Fish Called Wanda, A' rating=4.0>, <Record movie_name='Willy Wonka & the Chocolate Factory' rating=3.0>, <Record movie_name='Die Hard' rating=3.0>, <Record movie_name='2001: A Space Odyssey' rating=4.0>, <Record movie_name='Eraser' rating=2.0>, <Record movie_name='Independence Day (a.k.a. ID4)' rating=3.0>, <Record movie_name='Wallace & Gromit: A Close Shave' rating=5.0>, <Record movie_name='Barb Wire' rating=1.0>, <Record movie_name='Craft, The' rating=2.0>, <Record movie_name='Twister' rating=1.0>, <Record movie_name='Truth About Cats & Dogs, The' rating=3.0>, <Record movie_name='Wallace & Gromit: The Best of Aardman Animation' rating=5.0>, <Record movie_name='Heavy Metal' rating=3.0>, <Record movie_name='Mystery Science Theater 3000: The Movie' rating=4.0>, <Record movie_name='Snow White and the Seven Dwarfs' rating=4.0>], summary=<neo4j._work.summary.ResultSummary object at 0x0000011CDF636BD0>, keys=['movie_name', 'rating']), 'input': ' What is the highest rated movie that user_id 7 has rated in that has actor Tom Hanks?', 'chat_history': [], 'output': 'The highest rated movie that user_id 7 has rated with actor Tom Hanks is "Forrest Gump" with a rating of 8.8.'}

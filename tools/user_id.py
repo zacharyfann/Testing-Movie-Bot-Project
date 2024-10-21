@@ -73,6 +73,8 @@ Fine Tuning:
 
 For movie titles that begin with "The", move "the" to the end. For example "The 39 Steps" becomes "39 Steps, The" or "the matrix" becomes "Matrix, The".
 Remember RETURN can only be used at the end of a query!
+When using a parameter userId, make sure that the id is in quotes/ is a string value!                                        
+
 
 Order of cypher calls:
 

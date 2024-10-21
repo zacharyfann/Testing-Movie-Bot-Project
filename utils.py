@@ -48,7 +48,7 @@ def save_message(session_id: str, role: str, content: str, user_id:int):
 
 def get_messages(session_id: str):
     """
-    Retrieve all messages from the session state for a given session_id.
+    Retrieve all messages from the session state for a given session_id!
     """
     # Return the messages for the session, or an empty list if session_id or messages key doesn't exist
     return session_data.get(session_id, {}).get("messages", [])

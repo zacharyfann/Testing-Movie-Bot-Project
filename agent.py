@@ -58,7 +58,7 @@ agent_prompt = PromptTemplate.from_template("""
 
     Do not answer any questions using your pre-trained knowledge, only use the information provided in the context and relevant information from the user_id.                                  
 
-    If the user says "I", assume they mean the specified parameter "userId" 
+    If the user says "I", assume they mean the specified parameter "userId"!
     TOOLS:
     ------
 

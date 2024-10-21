@@ -115,7 +115,7 @@ async def send_chat_message(body: ApiChatPostRequest, request: Request):
 @app.get("/api/messages", tags=["chat"])
 async def get_all_messages(request: Request):
     """
-    Get all the saved messages (conversation history) for the current session.
+    Get all the saved messages (conversation history) for the current session!
     """
     session_id = get_session_id(request)
     messages = get_messages(session_id)

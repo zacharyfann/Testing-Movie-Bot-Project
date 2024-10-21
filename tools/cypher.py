@@ -10,7 +10,7 @@ Convert the user's question based on the schema.
 
 Use only the provided relationship types and properties in the schema.
 Do not use any other relationship types or properties that are not provided.
-When using a parameter userId, make sure that the id is in quotes/ is a string value                                        
+When using a parameter userId, make sure that the id is in quotes/ is a string value!                                        
 
 Do not return entire nodes or embedding properties.
 
