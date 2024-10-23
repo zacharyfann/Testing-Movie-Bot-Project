@@ -1,4 +1,9 @@
-Running the application
+Download/Install Neo4j Desktop: You need a working version of 5.18+ and a database with nodes of movies, actors, directors, users and relationships.
+Make sure to install APOC plugin
+
+Download/Install Postman
+
+Running the application:
 
 To run the application, you must install the libraries listed in `requirements.txt`.
 
@@ -14,10 +19,7 @@ NEO4J_DATABASE = "neo4j"
 OPENAI_API_KEY = "Your Key"
 OPENAI_MODEL = "An OpenAI Model"
 
-Download/Install Neo4j Desktop: You need a working version of 5.18+ and a database with nodes of movies, actors, directors, users and relationships.
-After this step, make sure to install APOC plugin
-
-Download/Install Postman: 
+In Postman:
 Navigate in Postman to Fetching User Question
 Switch to POST and add the link ex: http://127.0.0.1:8000/api/chat
 Click Body, then Raw, and JSON and add:
