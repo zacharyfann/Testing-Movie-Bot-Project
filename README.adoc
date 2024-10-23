@@ -5,6 +5,15 @@ To run the application, you must install the libraries listed in `requirements.t
 [source,sh]
 pip install -r requirements.txt
 
+Add all the information needed in a secrets.toml file under streamlit:
+[source,sh]
+NEO4J_URI = "bolt..."
+NEO4J_USERNAME = "username"
+NEO4J_PASSWORD = "password"
+NEO4J_DATABASE = "neo4j"
+OPENAI_API_KEY = "Your Key"
+OPENAI_MODEL = "An OpenAI Model"
+
 Download/Install Neo4j Desktop: You need a working version of 5.18+ and a database with nodes of movies, actors, directors, users and relationships.
 After this step, make sure to install APOC plugin
 
@@ -22,3 +31,5 @@ Then click the start button in Neo4j Desktop
 After, run this command in the python terminal:
 [source,sh]
 uvicorn  main:app --reload
+
+After running the command, you should be able to click POST in Postman and get an answer.
