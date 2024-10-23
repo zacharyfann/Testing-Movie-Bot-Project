@@ -18,5 +18,7 @@ Click Body, then Raw, and JSON and add:
     "user_id": "7"
 }
 
-Then start up the Neo4j Desktop and run this command in the terminal:
+Then click the start button in Neo4j Desktop 
+After, run this command in the python terminal:
+[source,sh]
 uvicorn  main:app --reload
